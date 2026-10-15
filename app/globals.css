@@ -1,0 +1,66 @@
+/* Font: Lora (judul & bacaan, serif), Nunito (display anak), Inter (UI/tabel), Andika (fallback bacaan) */
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Andika:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Teacher Mode (default) */
+    --surface-bg: #faf7f0; /* paper — hangat seperti kertas */
+    --surface-card: #ffffff;
+    --text-primary: #1e293b; /* slate-800 */
+    --density: 1rem;
+  }
+
+  html {
+    @apply font-sans text-slate-800 antialiased;
+  }
+
+  body {
+    background-color: var(--surface-bg);
+  }
+
+  /* Ring fokus konsisten di seluruh aplikasi */
+  :focus-visible {
+    outline: none;
+    box-shadow: theme("boxShadow.focus");
+    border-radius: theme("borderRadius.md");
+  }
+}
+
+@layer components {
+  /* Student Mode: kontainer bacaan — serif/semi-serif, lega, lebar baris 60ch. */
+  .passage {
+    @apply font-serif text-slate-900;
+    line-height: 1.9;
+    letter-spacing: 0.005em;
+    max-width: 60ch;
+  }
+
+  /* Layar rekam (S-03): teks bacaan lebih ringkas agar banyak baris terlihat
+     sambil merekam. Tablet ~22–24px, desktop ~24–28px (clamp), line-height 1.65,
+     lebar baris ~65 karakter. */
+  .passage-record {
+    font-size: clamp(1.375rem, 1.05rem + 0.9vw, 1.75rem);
+    line-height: 1.65;
+    max-width: 65ch;
+  }
+
+  /* Angka tabular untuk metrik */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

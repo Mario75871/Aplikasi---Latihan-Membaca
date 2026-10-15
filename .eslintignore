@@ -1,0 +1,6 @@
+# Build artifacts & dependency output tidak perlu di-lint.
+.next
+node_modules
+out
+*.tsbuildinfo
+next-env.d.ts
