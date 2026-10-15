@@ -1,0 +1,1001 @@
+{
+  "audio_path": "audio/indo_4.wav",
+  "model": "base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "cpu_threads": 4,
+  "audio_seconds": 57.609,
+  "load_seconds": 1.2376700840250123,
+  "elapsed_seconds": 11.925207458989462,
+  "rtf": 0.20700250757675817,
+  "xrt": 4.830859353861653,
+  "language": "id",
+  "language_probability": 1.0,
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 3.7,
+      "text": "saya Guys, terima kasih buat lo semua yang top",
+      "avg_logprob": -1.0557269323439824,
+      "no_speech_prob": 0.5376293659210205,
+      "compression_ratio": 1.9036144578313252,
+      "words": [
+        {
+          "word": " saya",
+          "start": 0.0,
+          "end": 1.12,
+          "probability": 0.06165383383631706
+        },
+        {
+          "word": " Guys,",
+          "start": 1.12,
+          "end": 1.54,
+          "probability": 0.10338689386844635
+        },
+        {
+          "word": " terima",
+          "start": 1.84,
+          "end": 2.04,
+          "probability": 0.8273417949676514
+        },
+        {
+          "word": " kasih",
+          "start": 2.04,
+          "end": 2.44,
+          "probability": 0.9986888766288757
+        },
+        {
+          "word": " buat",
+          "start": 2.44,
+          "end": 2.74,
+          "probability": 0.8926242589950562
+        },
+        {
+          "word": " lo",
+          "start": 2.74,
+          "end": 2.88,
+          "probability": 0.3344404697418213
+        },
+        {
+          "word": " semua",
+          "start": 2.88,
+          "end": 3.14,
+          "probability": 0.9105651378631592
+        },
+        {
+          "word": " yang",
+          "start": 3.14,
+          "end": 3.36,
+          "probability": 0.32154104113578796
+        },
+        {
+          "word": " top",
+          "start": 3.36,
+          "end": 3.7,
+          "probability": 0.12390352785587311
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "start": 3.7,
+      "end": 6.28,
+      "text": "gue masih Sky disini angin",
+      "avg_logprob": -1.0557269323439824,
+      "no_speech_prob": 0.5376293659210205,
+      "compression_ratio": 1.9036144578313252,
+      "words": [
+        {
+          "word": " gue",
+          "start": 3.7,
+          "end": 4.18,
+          "probability": 0.1567324548959732
+        },
+        {
+          "word": " masih",
+          "start": 4.18,
+          "end": 4.48,
+          "probability": 0.8052710294723511
+        },
+        {
+          "word": " Sky",
+          "start": 4.48,
+          "end": 5.0,
+          "probability": 0.28725582361221313
+        },
+        {
+          "word": " disini",
+          "start": 5.0,
+          "end": 5.62,
+          "probability": 0.6214684695005417
+        },
+        {
+          "word": " angin",
+          "start": 5.62,
+          "end": 6.28,
+          "probability": 0.18542178720235825
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "start": 6.28,
+      "end": 8.64,
+      "text": "gue mau dengung tuh gue video ini",
+      "avg_logprob": -1.0557269323439824,
+      "no_speech_prob": 0.5376293659210205,
+      "compression_ratio": 1.9036144578313252,
+      "words": [
+        {
+          "word": " gue",
+          "start": 6.28,
+          "end": 6.76,
+          "probability": 0.02063937857747078
+        },
+        {
+          "word": " mau",
+          "start": 6.76,
+          "end": 7.0,
+          "probability": 0.022068604826927185
+        },
+        {
+          "word": " dengung",
+          "start": 7.0,
+          "end": 7.38,
+          "probability": 0.36729901532332104
+        },
+        {
+          "word": " tuh",
+          "start": 7.38,
+          "end": 7.62,
+          "probability": 0.3390860855579376
+        },
+        {
+          "word": " gue",
+          "start": 7.62,
+          "end": 7.98,
+          "probability": 0.5281875133514404
+        },
+        {
+          "word": " video",
+          "start": 7.98,
+          "end": 8.36,
+          "probability": 0.6707696914672852
+        },
+        {
+          "word": " ini",
+          "start": 8.36,
+          "end": 8.64,
+          "probability": 0.584116518497467
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "start": 10.0,
+      "end": 13.5,
+      "text": "gue mau ngapro ini semua masih Sky disini ada atma ada disini",
+      "avg_logprob": -1.0557269323439824,
+      "no_speech_prob": 0.5376293659210205,
+      "compression_ratio": 1.9036144578313252,
+      "words": [
+        {
+          "word": " gue",
+          "start": 9.719999999999999,
+          "end": 10.06,
+          "probability": 0.03472869470715523
+        },
+        {
+          "word": " mau",
+          "start": 10.06,
+          "end": 10.1,
+          "probability": 0.015843437984585762
+        },
+        {
+          "word": " ngapro",
+          "start": 10.1,
+          "end": 10.52,
+          "probability": 0.4752425104379654
+        },
+        {
+          "word": " ini",
+          "start": 10.52,
+          "end": 10.76,
+          "probability": 0.19910761713981628
+        },
+        {
+          "word": " semua",
+          "start": 10.76,
+          "end": 11.08,
+          "probability": 0.9709244966506958
+        },
+        {
+          "word": " masih",
+          "start": 11.08,
+          "end": 11.54,
+          "probability": 0.7041833996772766
+        },
+        {
+          "word": " Sky",
+          "start": 11.54,
+          "end": 11.88,
+          "probability": 0.9200255274772644
+        },
+        {
+          "word": " disini",
+          "start": 11.88,
+          "end": 12.2,
+          "probability": 0.9873376190662384
+        },
+        {
+          "word": " ada",
+          "start": 12.2,
+          "end": 12.44,
+          "probability": 0.9806044101715088
+        },
+        {
+          "word": " atma",
+          "start": 12.44,
+          "end": 12.88,
+          "probability": 0.6992720365524292
+        },
+        {
+          "word": " ada",
+          "start": 12.88,
+          "end": 13.14,
+          "probability": 0.7444323897361755
+        },
+        {
+          "word": " disini",
+          "start": 13.14,
+          "end": 13.5,
+          "probability": 0.5439013838768005
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "start": 13.5,
+      "end": 17.44,
+      "text": "gue saatat tempatnya sama lo semua yang top",
+      "avg_logprob": -1.0557269323439824,
+      "no_speech_prob": 0.5376293659210205,
+      "compression_ratio": 1.9036144578313252,
+      "words": [
+        {
+          "word": " gue",
+          "start": 13.5,
+          "end": 14.62,
+          "probability": 0.0015895618125796318
+        },
+        {
+          "word": " saatat",
+          "start": 14.62,
+          "end": 15.72,
+          "probability": 0.21359294652938843
+        },
+        {
+          "word": " tempatnya",
+          "start": 15.72,
+          "end": 16.18,
+          "probability": 0.1600208729505539
+        },
+        {
+          "word": " sama",
+          "start": 16.18,
+          "end": 16.38,
+          "probability": 0.05947960168123245
+        },
+        {
+          "word": " lo",
+          "start": 16.38,
+          "end": 16.6,
+          "probability": 0.5541605353355408
+        },
+        {
+          "word": " semua",
+          "start": 16.6,
+          "end": 16.86,
+          "probability": 0.9664377570152283
+        },
+        {
+          "word": " yang",
+          "start": 16.86,
+          "end": 17.02,
+          "probability": 0.969663143157959
+        },
+        {
+          "word": " top",
+          "start": 17.02,
+          "end": 17.44,
+          "probability": 0.9193413257598877
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "start": 17.44,
+      "end": 20.52,
+      "text": "karena lo itu kontol",
+      "avg_logprob": -1.0557269323439824,
+      "no_speech_prob": 0.5376293659210205,
+      "compression_ratio": 1.9036144578313252,
+      "words": [
+        {
+          "word": " karena",
+          "start": 17.44,
+          "end": 18.0,
+          "probability": 0.03662935271859169
+        },
+        {
+          "word": " lo",
+          "start": 18.0,
+          "end": 19.42,
+          "probability": 0.17018833756446838
+        },
+        {
+          "word": " itu",
+          "start": 19.42,
+          "end": 19.78,
+          "probability": 0.5255334377288818
+        },
+        {
+          "word": " kontol",
+          "start": 19.78,
+          "end": 20.52,
+          "probability": 0.3423159122467041
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "start": 20.52,
+      "end": 24.22,
+      "text": "sama lo ini gue di doang",
+      "avg_logprob": -1.0557269323439824,
+      "no_speech_prob": 0.5376293659210205,
+      "compression_ratio": 1.9036144578313252,
+      "words": [
+        {
+          "word": " sama",
+          "start": 20.52,
+          "end": 21.28,
+          "probability": 0.025427987799048424
+        },
+        {
+          "word": " lo",
+          "start": 21.28,
+          "end": 21.98,
+          "probability": 0.11616797000169754
+        },
+        {
+          "word": " ini",
+          "start": 21.98,
+          "end": 22.44,
+          "probability": 0.08002955466508865
+        },
+        {
+          "word": " gue",
+          "start": 22.44,
+          "end": 23.16,
+          "probability": 0.1275063306093216
+        },
+        {
+          "word": " di",
+          "start": 23.16,
+          "end": 23.16,
+          "probability": 0.0020265132188796997
+        },
+        {
+          "word": " doang",
+          "start": 23.16,
+          "end": 24.22,
+          "probability": 0.025391601026058197
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "start": 24.22,
+      "end": 25.3,
+      "text": "gue ngomong gue mau kena kena kena lo tuh",
+      "avg_logprob": -1.0557269323439824,
+      "no_speech_prob": 0.5376293659210205,
+      "compression_ratio": 1.9036144578313252,
+      "words": [
+        {
+          "word": " gue",
+          "start": 24.22,
+          "end": 24.3,
+          "probability": 0.05465908721089363
+        },
+        {
+          "word": " ngomong",
+          "start": 24.3,
+          "end": 24.54,
+          "probability": 0.6700359626362721
+        },
+        {
+          "word": " gue",
+          "start": 24.54,
+          "end": 24.7,
+          "probability": 0.13218066096305847
+        },
+        {
+          "word": " mau",
+          "start": 24.7,
+          "end": 24.78,
+          "probability": 0.05729740113019943
+        },
+        {
+          "word": " kena",
+          "start": 24.78,
+          "end": 24.9,
+          "probability": 0.48336694575846195
+        },
+        {
+          "word": " kena",
+          "start": 24.9,
+          "end": 25.02,
+          "probability": 0.5226489827036858
+        },
+        {
+          "word": " kena",
+          "start": 25.02,
+          "end": 25.1,
+          "probability": 0.5768588110804558
+        },
+        {
+          "word": " lo",
+          "start": 25.1,
+          "end": 25.22,
+          "probability": 0.30479568243026733
+        },
+        {
+          "word": " tuh",
+          "start": 25.22,
+          "end": 25.3,
+          "probability": 0.23816809058189392
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "start": 25.3,
+      "end": 26.86,
+      "text": "ya deh deh nih",
+      "avg_logprob": -1.0557269323439824,
+      "no_speech_prob": 0.5376293659210205,
+      "compression_ratio": 1.9036144578313252,
+      "words": [
+        {
+          "word": " ya",
+          "start": 25.3,
+          "end": 25.56,
+          "probability": 0.023298075422644615
+        },
+        {
+          "word": " deh",
+          "start": 25.56,
+          "end": 25.94,
+          "probability": 0.09936430305242538
+        },
+        {
+          "word": " deh",
+          "start": 25.94,
+          "end": 26.02,
+          "probability": 0.40913063287734985
+        },
+        {
+          "word": " nih",
+          "start": 26.02,
+          "end": 26.86,
+          "probability": 0.21951884031295776
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "start": 26.86,
+      "end": 27.4,
+      "text": "Mereka tolong.",
+      "avg_logprob": -0.700529009306512,
+      "no_speech_prob": 0.49340835213661194,
+      "compression_ratio": 1.622754491017964,
+      "words": [
+        {
+          "word": " Mereka",
+          "start": 26.86,
+          "end": 27.24,
+          "probability": 0.3825483974069357
+        },
+        {
+          "word": " tolong.",
+          "start": 27.24,
+          "end": 27.4,
+          "probability": 0.1367054176516831
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "start": 28.84,
+      "end": 29.6,
+      "text": "Samratong.",
+      "avg_logprob": -0.700529009306512,
+      "no_speech_prob": 0.49340835213661194,
+      "compression_ratio": 1.622754491017964,
+      "words": [
+        {
+          "word": " Samratong.",
+          "start": 28.84,
+          "end": 29.6,
+          "probability": 0.10749700285183887
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "start": 29.98,
+      "end": 31.44,
+      "text": "Memang, nantoknya.",
+      "avg_logprob": -0.700529009306512,
+      "no_speech_prob": 0.49340835213661194,
+      "compression_ratio": 1.622754491017964,
+      "words": [
+        {
+          "word": " Memang,",
+          "start": 29.98,
+          "end": 30.58,
+          "probability": 0.6354355216026306
+        },
+        {
+          "word": " nantoknya.",
+          "start": 30.76,
+          "end": 31.44,
+          "probability": 0.26611122488975525
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "start": 31.96,
+      "end": 33.32,
+      "text": "Anjir lu kontol.",
+      "avg_logprob": -0.700529009306512,
+      "no_speech_prob": 0.49340835213661194,
+      "compression_ratio": 1.622754491017964,
+      "words": [
+        {
+          "word": " Anjir",
+          "start": 31.96,
+          "end": 32.64,
+          "probability": 0.46070657173792523
+        },
+        {
+          "word": " lu",
+          "start": 32.64,
+          "end": 32.76,
+          "probability": 0.3110657036304474
+        },
+        {
+          "word": " kontol.",
+          "start": 32.76,
+          "end": 33.32,
+          "probability": 0.5274472832679749
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "start": 33.96,
+      "end": 35.44,
+      "text": "Kena kota kota kota kota.",
+      "avg_logprob": -0.700529009306512,
+      "no_speech_prob": 0.49340835213661194,
+      "compression_ratio": 1.622754491017964,
+      "words": [
+        {
+          "word": " Kena",
+          "start": 33.96,
+          "end": 34.02,
+          "probability": 0.17389902845025063
+        },
+        {
+          "word": " kota",
+          "start": 34.02,
+          "end": 34.24,
+          "probability": 0.6715330183506012
+        },
+        {
+          "word": " kota",
+          "start": 34.24,
+          "end": 34.5,
+          "probability": 0.70689657330513
+        },
+        {
+          "word": " kota",
+          "start": 34.5,
+          "end": 34.78,
+          "probability": 0.7760474681854248
+        },
+        {
+          "word": " kota.",
+          "start": 34.78,
+          "end": 35.44,
+          "probability": 0.6849188208580017
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "start": 35.44,
+      "end": 35.9,
+      "text": "Anjir.",
+      "avg_logprob": -0.700529009306512,
+      "no_speech_prob": 0.49340835213661194,
+      "compression_ratio": 1.622754491017964,
+      "words": [
+        {
+          "word": " Anjir.",
+          "start": 35.44,
+          "end": 35.9,
+          "probability": 0.7737502753734589
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "start": 36.56,
+      "end": 37.64,
+      "text": "Nguyen, tok.",
+      "avg_logprob": -0.700529009306512,
+      "no_speech_prob": 0.49340835213661194,
+      "compression_ratio": 1.622754491017964,
+      "words": [
+        {
+          "word": " Nguyen,",
+          "start": 36.56,
+          "end": 37.06,
+          "probability": 0.3526402364174525
+        },
+        {
+          "word": " tok.",
+          "start": 37.4,
+          "end": 37.64,
+          "probability": 0.322720680385828
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "start": 37.82,
+      "end": 38.36,
+      "text": "Nguyen tok.",
+      "avg_logprob": -0.700529009306512,
+      "no_speech_prob": 0.49340835213661194,
+      "compression_ratio": 1.622754491017964,
+      "words": [
+        {
+          "word": " Nguyen",
+          "start": 37.82,
+          "end": 37.9,
+          "probability": 0.7700261970361074
+        },
+        {
+          "word": " tok.",
+          "start": 37.9,
+          "end": 38.36,
+          "probability": 0.6179917454719543
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "start": 38.4,
+      "end": 40.16,
+      "text": "Semangin gue ramai disini.",
+      "avg_logprob": -0.700529009306512,
+      "no_speech_prob": 0.49340835213661194,
+      "compression_ratio": 1.622754491017964,
+      "words": [
+        {
+          "word": " Semangin",
+          "start": 38.4,
+          "end": 38.88,
+          "probability": 0.6565747857093811
+        },
+        {
+          "word": " gue",
+          "start": 38.88,
+          "end": 39.3,
+          "probability": 0.23377986252307892
+        },
+        {
+          "word": " ramai",
+          "start": 39.3,
+          "end": 39.84,
+          "probability": 0.7141998410224915
+        },
+        {
+          "word": " disini.",
+          "start": 39.84,
+          "end": 40.16,
+          "probability": 0.7203052341938019
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "start": 41.260000000000005,
+      "end": 42.84,
+      "text": "Ngua ada skontol itu.",
+      "avg_logprob": -0.700529009306512,
+      "no_speech_prob": 0.49340835213661194,
+      "compression_ratio": 1.622754491017964,
+      "words": [
+        {
+          "word": " Ngua",
+          "start": 41.260000000000005,
+          "end": 42.02,
+          "probability": 0.43216602007548016
+        },
+        {
+          "word": " ada",
+          "start": 42.02,
+          "end": 42.12,
+          "probability": 0.5207368731498718
+        },
+        {
+          "word": " skontol",
+          "start": 42.12,
+          "end": 42.58,
+          "probability": 0.7770134309927622
+        },
+        {
+          "word": " itu.",
+          "start": 42.58,
+          "end": 42.84,
+          "probability": 0.7608155608177185
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "start": 43.2,
+      "end": 43.86,
+      "text": "Semuanya silis.",
+      "avg_logprob": -0.700529009306512,
+      "no_speech_prob": 0.49340835213661194,
+      "compression_ratio": 1.622754491017964,
+      "words": [
+        {
+          "word": " Semuanya",
+          "start": 43.2,
+          "end": 43.52,
+          "probability": 0.7741160492102305
+        },
+        {
+          "word": " silis.",
+          "start": 43.52,
+          "end": 43.86,
+          "probability": 0.17554953694343567
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "start": 44.86,
+      "end": 47.18,
+      "text": "Bini gue itu tantep banget disanjir.",
+      "avg_logprob": -0.700529009306512,
+      "no_speech_prob": 0.49340835213661194,
+      "compression_ratio": 1.622754491017964,
+      "words": [
+        {
+          "word": " Bini",
+          "start": 44.559999999999995,
+          "end": 44.94,
+          "probability": 0.36532631516456604
+        },
+        {
+          "word": " gue",
+          "start": 44.94,
+          "end": 45.14,
+          "probability": 0.9664903879165649
+        },
+        {
+          "word": " itu",
+          "start": 45.14,
+          "end": 45.32,
+          "probability": 0.7752817273139954
+        },
+        {
+          "word": " tantep",
+          "start": 45.32,
+          "end": 45.68,
+          "probability": 0.42102033893267315
+        },
+        {
+          "word": " banget",
+          "start": 45.68,
+          "end": 45.82,
+          "probability": 0.9385170340538025
+        },
+        {
+          "word": " disanjir.",
+          "start": 45.82,
+          "end": 47.18,
+          "probability": 0.43667763099074364
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "start": 47.36,
+      "end": 48.48,
+      "text": "Anjir, bini gue.",
+      "avg_logprob": -0.700529009306512,
+      "no_speech_prob": 0.49340835213661194,
+      "compression_ratio": 1.622754491017964,
+      "words": [
+        {
+          "word": " Anjir,",
+          "start": 47.36,
+          "end": 47.78,
+          "probability": 0.8978139956792196
+        },
+        {
+          "word": " bini",
+          "start": 48.04,
+          "end": 48.22,
+          "probability": 0.6666924059391022
+        },
+        {
+          "word": " gue.",
+          "start": 48.22,
+          "end": 48.48,
+          "probability": 0.9584282636642456
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "start": 49.16,
+      "end": 49.52,
+      "text": "Oke.",
+      "avg_logprob": -0.700529009306512,
+      "no_speech_prob": 0.49340835213661194,
+      "compression_ratio": 1.622754491017964,
+      "words": [
+        {
+          "word": " Oke.",
+          "start": 49.16,
+          "end": 49.52,
+          "probability": 0.6983768343925476
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "start": 50.44,
+      "end": 50.7,
+      "text": "Ya.",
+      "avg_logprob": -0.700529009306512,
+      "no_speech_prob": 0.49340835213661194,
+      "compression_ratio": 1.622754491017964,
+      "words": [
+        {
+          "word": " Ya.",
+          "start": 50.44,
+          "end": 50.7,
+          "probability": 0.47139957547187805
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "start": 51.48,
+      "end": 52.08,
+      "text": "Malu.",
+      "avg_logprob": -0.700529009306512,
+      "no_speech_prob": 0.49340835213661194,
+      "compression_ratio": 1.622754491017964,
+      "words": [
+        {
+          "word": " Malu.",
+          "start": 51.48,
+          "end": 52.08,
+          "probability": 0.4080172888934612
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "start": 53.74,
+      "end": 55.44,
+      "text": "Aku ingin kontol.",
+      "avg_logprob": -0.700529009306512,
+      "no_speech_prob": 0.49340835213661194,
+      "compression_ratio": 1.622754491017964,
+      "words": [
+        {
+          "word": " Aku",
+          "start": 53.74,
+          "end": 54.18,
+          "probability": 0.454709529876709
+        },
+        {
+          "word": " ingin",
+          "start": 54.18,
+          "end": 54.76,
+          "probability": 0.9767532646656036
+        },
+        {
+          "word": " kontol.",
+          "start": 54.76,
+          "end": 55.44,
+          "probability": 0.9853383600711823
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "start": 55.44,
+      "end": 57.22,
+      "text": "Yang terdibang",
+      "avg_logprob": -0.8395104631781578,
+      "no_speech_prob": 0.8583106994628906,
+      "compression_ratio": 0.7,
+      "words": [
+        {
+          "word": " Yang",
+          "start": 55.44,
+          "end": 56.1,
+          "probability": 0.09586507827043533
+        },
+        {
+          "word": " terdibang",
+          "start": 56.1,
+          "end": 57.22,
+          "probability": 0.5068439524620771
+        }
+      ]
+    }
+  ],
+  "text": "saya Guys, terima kasih buat lo semua yang top gue masih Sky disini angin gue mau dengung tuh gue video ini gue mau ngapro ini semua masih Sky disini ada atma ada disini gue saatat tempatnya sama lo semua yang top karena lo itu kontol sama lo ini gue di doang gue ngomong gue mau kena kena kena lo tuh ya deh deh nih Mereka tolong. Samratong. Memang, nantoknya. Anjir lu kontol. Kena kota kota kota kota. Anjir. Nguyen, tok. Nguyen tok. Semangin gue ramai disini. Ngua ada skontol itu. Semuanya silis. Bini gue itu tantep banget disanjir. Anjir, bini gue. Oke. Ya. Malu. Aku ingin kontol. Yang terdibang",
+  "applied_params": {
+    "language": "id",
+    "task": "transcribe",
+    "beam_size": 1,
+    "best_of": 1,
+    "temperature": 0.0,
+    "patience": 1.0,
+    "length_penalty": 1.0,
+    "repetition_penalty": 1.0,
+    "no_repeat_ngram_size": 0,
+    "condition_on_previous_text": false,
+    "initial_prompt": null,
+    "hotwords": null,
+    "prefix": null,
+    "no_speech_threshold": 0.6,
+    "log_prob_threshold": -1.0,
+    "compression_ratio_threshold": 2.4,
+    "suppress_blank": true,
+    "suppress_tokens": [
+      -1
+    ],
+    "max_initial_timestamp": 1.0,
+    "word_timestamps": true,
+    "without_timestamps": false,
+    "vad_filter": false
+  },
+  "peak_rss_mb": 503.140625,
+  "error": "",
+  "reference": "",
+  "wer": null,
+  "cer": null,
+  "exact": null,
+  "breakdown": null
+}
