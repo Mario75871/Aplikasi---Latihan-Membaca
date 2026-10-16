@@ -15,7 +15,7 @@ const LEVEL_STYLE: Record<1 | 2 | 3, string> = {
 /**
  * ReadingCard — kartu bacaan yang dapat diklik penuh (bukan radio kecil).
  * Menampilkan badge level, jumlah kata, tema, estimasi durasi, dan — bila cocok —
- * penanda "Disarankan untuk <nama>" sesuai keputusan sebelumnya (§29).
+ * penanda "Disarankan untuk <nama>" sesuai keputusan sebelumnya.
  * State terpilih jelas (border brand + check).
  */
 export function ReadingCard({
@@ -38,7 +38,7 @@ export function ReadingCard({
       aria-checked={selected}
       onClick={onSelect}
       className={cn(
-        "relative flex w-full items-start gap-4 rounded-lg border-2 bg-white p-4 text-left transition-all",
+        "relative flex w-full items-start gap-4 rounded-lg border-2 bg-white p-4 text-left transition-colors",
         "hover:border-brand-300 focus-visible:outline-none",
         selected ? "border-brand-500 bg-brand-50/50" : "border-paper-200"
       )}

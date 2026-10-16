@@ -15,7 +15,7 @@ const LEVEL_DOT: Record<1 | 2 | 3, string> = {
 };
 
 /**
- * ReadingsTable — katalog bacaan ringkas (§10, §28).
+ * ReadingsTable — katalog bacaan ringkas.
  * Tabel tenang: judul, level, kata, durasi, tema. Klik baris membuka PRATINJAU
  * teks dengan tombol "Pakai untuk asesmen" (menuju /assess).
  */
@@ -37,7 +37,7 @@ export function ReadingsTable({ readings }: { readings: ReadingText[] }) {
     <>
       <div className="overflow-hidden rounded-lg border border-paper-200 bg-white">
         <table className="w-full text-sm">
-          <thead className="text-left text-xs uppercase tracking-wide text-slate-500">
+          <thead className="text-left text-xs font-medium text-slate-500">
             <tr className="border-b border-paper-200">
               <th scope="col" className="px-4 py-2.5 font-semibold">Judul</th>
               <th scope="col" className="px-4 py-2.5 font-semibold">Level</th>

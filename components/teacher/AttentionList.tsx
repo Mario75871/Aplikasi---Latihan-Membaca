@@ -73,7 +73,7 @@ export function AttentionList({ items }: { items: AttentionItem[] }) {
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="font-medium text-slate-800">{it.name}</span>
                   <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600">
-                    <span aria-hidden className={cn("inline-block h-2 w-2 rounded-full", meta.dot)} />
+                    <Icon name={meta.icon} size={14} strokeWidth={2} className={cn("shrink-0", meta.text)} />
                     {meta.label}
                   </span>
                   <span className="text-xs text-slate-400">{it.classLabel}</span>

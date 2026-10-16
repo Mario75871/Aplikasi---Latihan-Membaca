@@ -5,8 +5,8 @@ import type { WordScoreView } from "@/lib/types";
 
 /**
  * Label Bahasa Indonesia untuk kode `review_reasons` dari framework.
- * Ini adalah sinyal "perlu diperiksa", BUKAN vonis kesalahan membaca
- * (lihat reading_framework/review_flags.py). Tidak ada klasifikasi jenis kesalahan.
+ * Ini adalah sinyal "perlu diperiksa", BUKAN vonis kesalahan membaca.
+ * Tidak ada klasifikasi jenis kesalahan.
  */
 const REVIEW_REASON_LABEL: Record<string, string> = {
   low_model_probability: "Keyakinan model rendah",
@@ -27,11 +27,10 @@ function reviewLabel(code: string): string {
 }
 
 /**
- * WordTracePanel — traceability kata (§38.3, P1).
+ * WordTracePanel — telusur keputusan tiap kata.
  *
  * Menampilkan keputusan tiap kata (Benar / Perlu latihan) dan kata yang DITANDAI
- * perlu diperiksa (review flags dari framework). Angka WCPM/Akurasi bisa ditelusuri
- * ke input-nya.
+ * perlu diperiksa. Angka WCPM/Akurasi bisa ditelusuri ke input-nya.
  *
  * Batasan penting:
  * - Ini "penilaian otomatis (estimasi)" — bukan bukti pelafalan benar/salah.
@@ -52,7 +51,7 @@ export function WordTracePanel({ words }: { words: WordScoreView[] }) {
         </div>
         <InfoTip
           label="Aturan penilaian kata"
-          text="Aturan (§13.2, D10/D11): match dengan keyakinan > 0.5 = Benar; ≤ 0.5 = Perlu latihan; substitusi = Perlu latihan. Nama diri (proper noun) tetap dianggap Benar. Kata yang ditandai framework sebagai perlu diperiksa tetap ditampilkan, tanpa menyimpulkan jenis kesalahan."
+          text="Kata dianggap Benar bila keyakinan model di atas 0,5; di bawah itu Perlu latihan. Nama diri tetap dianggap Benar. Kata yang ditandai perlu diperiksa tetap ditampilkan, tanpa menyimpulkan jenis kesalahan."
         />
       </div>
 
@@ -64,7 +63,7 @@ export function WordTracePanel({ words }: { words: WordScoreView[] }) {
         <>
           <div className="max-h-96 overflow-y-auto">
             <table className="w-full text-sm">
-              <thead className="sticky top-0 bg-paper-50 text-left text-xs uppercase text-slate-500">
+              <thead className="sticky top-0 bg-paper-50 text-left text-xs font-medium text-slate-500">
                 <tr>
                   <th scope="col" className="px-4 py-2 font-semibold">#</th>
                   <th scope="col" className="px-4 py-2 font-semibold">Kata</th>

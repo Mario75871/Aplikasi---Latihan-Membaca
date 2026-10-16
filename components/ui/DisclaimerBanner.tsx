@@ -6,10 +6,10 @@ type DisclaimerKind = keyof typeof DISCLAIMERS;
 
 /**
  * DisclaimerBanner — komponen wajib untuk klaim eksternal.
- * hasbrouck (§30) · threshold (§15) · medical (§44)
+ * Jenis: hasbrouck · threshold · medical.
  *
  * Gaya: footnote rapi (ikon shield-alert + teks kecil netral), tetap terbaca
- * tetapi tidak mencolok — sesuai design-system §7.16.
+ * tetapi tidak mencolok.
  */
 export function DisclaimerBanner({
   kind,

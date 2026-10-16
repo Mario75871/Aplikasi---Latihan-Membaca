@@ -6,6 +6,7 @@ import { StudentShell } from "@/components/student/StudentShell";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/icons";
 import { uploadAssessmentAudio, ApiError } from "@/lib/api";
+import { makeSilentWavBlob } from "@/lib/audio-wav";
 import { getPendingRecording, clearPendingRecording } from "@/lib/recording-store";
 
 const MESSAGES = [
@@ -59,10 +60,11 @@ function ProcessingScreen() {
     }
 
     const rec = getPendingRecording();
-    // Bila tidak ada rekaman (mis. tombol "Pakai Audio Contoh"), kirim blob kecil
-    // agar backend mode demo dapat memutar ulang hasil contoh.
-    const blob = rec?.blob ?? new Blob([new Uint8Array([0])], { type: "audio/webm" });
-    const filename = rec ? "rekaman.webm" : "audio-contoh.webm";
+    // Bila tidak ada rekaman (mis. tombol "Pakai Audio Contoh"), kirim WAV kecil
+    // yang VALID agar lolos validasi magic bytes (backend hanya menerima WAV/MP3)
+    // sekaligus backend mode demo dapat memutar ulang hasil contoh.
+    const blob = rec?.blob ?? makeSilentWavBlob();
+    const filename = rec ? "rekaman.wav" : "audio-contoh.wav";
 
     try {
       const result = await uploadAssessmentAudio(assessmentId, blob, filename);
@@ -77,6 +79,15 @@ function ProcessingScreen() {
       if (e instanceof ApiError && e.status === 503) {
         setErrorMsg(
           "Suara belum bisa diproses. Coba tekan Coba Lagi, atau minta bantuan Ibu/Bapak guru ya."
+        );
+      } else if (e instanceof ApiError && e.status === 422) {
+        // Audio terlalu panjang (> MAX_AUDIO_DURATION_SEC).
+        setErrorMsg(
+          "Rekaman terlalu panjang untuk diproses. Coba rekam ulang dengan durasi lebih singkat ya."
+        );
+      } else if (e instanceof ApiError && (e.status === 413 || e.status === 415)) {
+        setErrorMsg(
+          "Rekaman tidak didukung (harus WAV/MP3 dan maks 10 MB). Coba rekam ulang ya."
         );
       } else if (e instanceof ApiError) {
         setErrorMsg(e.detail);

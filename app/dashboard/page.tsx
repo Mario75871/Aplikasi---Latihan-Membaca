@@ -13,7 +13,7 @@ import { getServerToken } from "@/lib/api-server";
 /**
  * F-10 Teacher Dashboard. Data dari GET /dashboard/class/{id}.
  * Status yang ditampilkan adalah keputusan Adaptive Engine (adaptive_status),
- * konsisten dengan kosakata status di seluruh UI (design-system).
+ * konsisten dengan kosakata status di seluruh UI.
  */
 export default async function DashboardPage({
   searchParams,

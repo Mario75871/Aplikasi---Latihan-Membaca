@@ -27,8 +27,8 @@ export function middleware(req: NextRequest) {
     (p) => pathname === p || pathname.startsWith(p + "/")
   );
 
-  // Sudah login → jangan tampilkan halaman login lagi.
-  if (pathname === "/login" && token) {
+  // Sudah login → jangan tampilkan halaman login/daftar lagi.
+  if ((pathname === "/login" || pathname === "/register") && token) {
     return NextResponse.redirect(new URL("/dashboard", req.url));
   }
 
@@ -50,5 +50,6 @@ export const config = {
     "/readings/:path*",
     "/assess/:path*",
     "/login",
+    "/register",
   ],
 };

@@ -32,7 +32,10 @@ export default async function StudentProfilePage({
   const prev = assessments[assessments.length - 2];
 
   const avgComprehension = last ? averageComprehension(last.comprehension) : 0;
-  const wcpmDelta = last && prev ? last.wcpm - prev.wcpm : undefined;
+  const wcpmDelta =
+    last && prev && last.wcpm !== null && prev.wcpm !== null
+      ? last.wcpm - prev.wcpm
+      : undefined;
 
   return (
     <TeacherShell
@@ -80,13 +83,14 @@ export default async function StudentProfilePage({
           <>
             {/* Metrik terbaru */}
             <section>
-              <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-slate-500">
+              <h2 className="mb-3 font-serif text-h3 font-semibold text-slate-800">
                 Hasil Terbaru · {formatDateID(last.date)}
               </h2>
               <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
                 <StatTile
                   label="WCPM"
-                  value={last.wcpm}
+                  value={last.wcpm ?? 0}
+                  empty={last.wcpm === null}
                   hint="Kata benar per menit"
                   delta={
                     wcpmDelta !== undefined
@@ -94,10 +98,15 @@ export default async function StudentProfilePage({
                       : undefined
                   }
                 />
-                <StatTile label="Akurasi" value={last.accuracy} unit="%" />
+                <StatTile
+                  label="Akurasi"
+                  value={last.accuracy ?? 0}
+                  empty={last.accuracy === null}
+                  unit="%"
+                />
                 <StatTile label="Pemahaman" value={avgComprehension} unit="%" />
                 <div className="rounded-lg border border-paper-200 bg-white p-4">
-                  <p className="text-xs font-medium uppercase tracking-wide text-slate-500">Status</p>
+                  <p className="text-xs font-medium text-slate-500">Status</p>
                   <div className="mt-2">
                     <StatusText status={last.status} />
                   </div>
@@ -128,9 +137,6 @@ export default async function StudentProfilePage({
                         label={`Arti ${COMPETENCY_META[key].label}`}
                         text={COMPETENCY_META[key].description}
                       />
-                      <span className="text-xs text-slate-400">
-                        · {COMPETENCY_META[key].short}
-                      </span>
                     </div>
                     <Meter
                       value={last.comprehension[key]}
@@ -158,7 +164,7 @@ export default async function StudentProfilePage({
               <ProgressChart
                 points={assessments.map((a) => a.wcpm)}
                 labels={assessments.map((_, i) => `A${i + 1}`)}
-                color="#3B82F6"
+                color="#BD582E"
               />
             </Card>
 

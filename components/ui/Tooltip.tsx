@@ -6,9 +6,12 @@ import { cn } from "@/lib/utils";
 /**
  * InfoTip — ikon info kecil dengan tooltip.
  *
- * Dipakai untuk menaruh istilah teknis (mis. "INTERVENE", "WCPM") di balik tooltip
- * sehingga UI guru tetap berbahasa Indonesia sederhana (design-system §10).
- * Aksesibel: dapat difokus via keyboard dan memakai aria-describedby.
+ * Menaruh penjelasan singkat (mis. arti status, aturan penilaian kata) di balik
+ * tooltip sehingga UI guru tetap bersih. Aksesibel: dapat difokus via keyboard
+ * dan memakai aria-describedby.
+ *
+ * Hover sengaja **tertunda** (~700ms) agar tooltip tidak muncul saat kursor
+ * sekadar melintas; fokus keyboard muncul **segera** (0ms) agar tetap responsif.
  */
 export function InfoTip({
   text,
@@ -57,7 +60,7 @@ export function InfoTip({
         className={cn(
           "pointer-events-none absolute bottom-full left-1/2 z-dropdown mb-2 w-60 -translate-x-1/2",
           "rounded-md bg-slate-800 px-3 py-2 text-left text-xs font-normal leading-snug text-white shadow-lg",
-          "opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-within:opacity-100"
+          "opacity-0 transition-opacity duration-micro ease-out delay-0 group-hover:delay-700 group-hover:opacity-100 group-focus-within:opacity-100"
         )}
       >
         {text}

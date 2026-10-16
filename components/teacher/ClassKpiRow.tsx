@@ -1,20 +1,25 @@
 import { STATUS_META, UNASSESSED_META, type DisplayStatus } from "@/lib/tokens";
+import { Icon, type IconName } from "@/components/ui/icons";
 import { cn, formatNumber } from "@/lib/utils";
 
 export interface KpiItem {
   key: DisplayStatus | "TOTAL";
   label: string;
   value: number;
-  /** Titik penanda kecil (hanya untuk status); TOTAL tanpa titik. */
+  /** Titik penanda kecil (dipertahankan untuk kompatibilitas). */
   dot?: string;
+  /** Ikon status (bila ada) — memperkuat makna tanpa bergantung warna. */
+  icon?: IconName;
+  /** Warna ikon status. */
+  iconClass?: string;
 }
 
 /**
- * ClassKpiRow — ringkasan kelas (§32) memakai SATU kosakata status.
+ * ClassKpiRow — ringkasan kelas memakai SATU kosakata status.
  *
- * Tenang & rapat: cukup angka besar + label dalam satu baris, tanpa garis warna
- * di atas kartu maupun ikon dekoratif. Makna status dibawa oleh titik kecil
- * berwarna + label (bukan warna saja). Tiap kartu bisa diklik untuk memfilter.
+ * Disusun seperti buku-besar (ledger): angka besar rata kanan + label, dipisah
+ * garis tipis. Tanpa garis warna di atas kartu, tanpa ikon dekoratif. Makna
+ * status dibawa oleh IKON + label (bukan warna saja). Tiap sel dapat difilter.
  */
 export function ClassKpiRow({
   total,
@@ -39,15 +44,55 @@ export function ClassKpiRow({
 }) {
   const items: KpiItem[] = [
     { key: "TOTAL", label: "Total siswa", value: total },
-    { key: "INTERVENE", label: STATUS_META.INTERVENE.label, value: intervene, dot: STATUS_META.INTERVENE.dot },
-    { key: "PROMOTION_CANDIDATE", label: STATUS_META.PROMOTION_CANDIDATE.label, value: candidate, dot: STATUS_META.PROMOTION_CANDIDATE.dot },
-    { key: "STAY", label: STATUS_META.STAY.label, value: stay, dot: STATUS_META.STAY.dot },
-    { key: "PROMOTE", label: STATUS_META.PROMOTE.label, value: promote, dot: STATUS_META.PROMOTE.dot },
-    { key: "UNASSESSED", label: UNASSESSED_META.label, value: unassessed, dot: UNASSESSED_META.dot },
+    {
+      key: "INTERVENE",
+      label: STATUS_META.INTERVENE.label,
+      value: intervene,
+      dot: STATUS_META.INTERVENE.dot,
+      icon: STATUS_META.INTERVENE.icon,
+      iconClass: STATUS_META.INTERVENE.text,
+    },
+    {
+      key: "PROMOTION_CANDIDATE",
+      label: STATUS_META.PROMOTION_CANDIDATE.label,
+      value: candidate,
+      dot: STATUS_META.PROMOTION_CANDIDATE.dot,
+      icon: STATUS_META.PROMOTION_CANDIDATE.icon,
+      iconClass: STATUS_META.PROMOTION_CANDIDATE.text,
+    },
+    {
+      key: "STAY",
+      label: STATUS_META.STAY.label,
+      value: stay,
+      dot: STATUS_META.STAY.dot,
+      icon: STATUS_META.STAY.icon,
+      iconClass: STATUS_META.STAY.text,
+    },
+    {
+      key: "PROMOTE",
+      label: STATUS_META.PROMOTE.label,
+      value: promote,
+      dot: STATUS_META.PROMOTE.dot,
+      icon: STATUS_META.PROMOTE.icon,
+      iconClass: STATUS_META.PROMOTE.text,
+    },
+    {
+      key: "UNASSESSED",
+      label: UNASSESSED_META.label,
+      value: unassessed,
+      dot: UNASSESSED_META.dot,
+      icon: UNASSESSED_META.icon,
+      iconClass: UNASSESSED_META.text,
+    },
   ];
 
   return (
-    <div className={cn("grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-paper-200 bg-paper-200 sm:grid-cols-3 xl:grid-cols-6", className)}>
+    <div
+      className={cn(
+        "grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-paper-200 bg-paper-200 sm:grid-cols-3 xl:grid-cols-6",
+        className
+      )}
+    >
       {items.map((it) => {
         const isFilterable = it.key !== "TOTAL" && Boolean(onSelect);
         const active = activeStatus === it.key;
@@ -56,22 +101,35 @@ export function ClassKpiRow({
             key={it.key}
             type="button"
             disabled={!isFilterable}
-            onClick={isFilterable ? () => onSelect?.(active ? null : (it.key as DisplayStatus)) : undefined}
+            onClick={
+              isFilterable
+                ? () => onSelect?.(active ? null : (it.key as DisplayStatus))
+                : undefined
+            }
             aria-pressed={isFilterable ? active : undefined}
             className={cn(
-              "flex flex-col items-start gap-1 px-4 py-3 text-left transition-colors",
-              active ? "bg-brand-50" : "bg-white",
+              "relative flex flex-col items-stretch gap-2 px-4 py-3.5 text-left transition-colors",
+              active ? "bg-paper-100" : "bg-white",
               isFilterable && "hover:bg-paper-50",
               !isFilterable && "cursor-default"
             )}
           >
+            {/* Penanda sel aktif: aturan aksen tipis di tepi kiri, bukan blok warna. */}
+            {active && (
+              <span aria-hidden className="absolute inset-y-0 left-0 w-0.5 bg-brand-500" />
+            )}
             <span className="flex items-center gap-1.5 text-xs font-medium text-slate-500">
-              {it.dot && (
-                <span aria-hidden className={cn("inline-block h-2 w-2 rounded-full", it.dot)} />
+              {it.icon && (
+                <Icon
+                  name={it.icon}
+                  size={13}
+                  strokeWidth={2}
+                  className={cn("shrink-0", it.iconClass)}
+                />
               )}
               {it.label}
             </span>
-            <span className="tabular text-3xl font-bold leading-none text-slate-900">
+            <span className="tabular text-right text-3xl font-bold leading-none tracking-tight text-slate-900">
               {formatNumber(it.value)}
             </span>
           </button>

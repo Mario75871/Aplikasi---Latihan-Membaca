@@ -83,17 +83,19 @@ export default async function ClassesPage() {
               {/* Dua hitungan dipisah — tidak dijumlahkan. */}
               <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
                 <span className="inline-flex items-center gap-2 text-slate-700">
-                  <span
-                    aria-hidden
-                    className={cn("inline-block h-2.5 w-2.5 rounded-full", STATUS_META.INTERVENE.dot)}
+                  <Icon
+                    name={STATUS_META.INTERVENE.icon}
+                    size={15}
+                    className={cn("shrink-0", STATUS_META.INTERVENE.text)}
                   />
                   <span className="tabular font-semibold">{intervene}</span>
                   <span className="text-slate-500">perlu intervensi</span>
                 </span>
                 <span className="inline-flex items-center gap-2 text-slate-700">
-                  <span
-                    aria-hidden
-                    className={cn("inline-block h-2.5 w-2.5 rounded-full", UNASSESSED_META.dot)}
+                  <Icon
+                    name={UNASSESSED_META.icon}
+                    size={15}
+                    className={cn("shrink-0", UNASSESSED_META.text)}
                   />
                   <span className="tabular font-semibold">{unassessed}</span>
                   <span className="text-slate-500">belum diases</span>

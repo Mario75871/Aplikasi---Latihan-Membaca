@@ -11,9 +11,14 @@ export interface AssessmentRow {
   date: string;
   studentName: string;
   readingTitle: string;
-  wcpm: number;
-  accuracy: number;
+  wcpm: number | null;
+  accuracy: number | null;
   status: AdaptiveStatus | null;
+}
+
+/** Format metrik yang boleh null → "–" (null ≠ 0). */
+function metricText(value: number | null, unit = ""): string {
+  return value === null || value === undefined ? "–" : `${value}${unit}`;
 }
 
 /**
@@ -36,7 +41,7 @@ export function AssessmentsTable({ rows }: { rows: AssessmentRow[] }) {
   return (
     <div className="overflow-hidden rounded-lg border border-paper-200 bg-white">
       <table className="w-full text-sm">
-        <thead className="text-left text-xs uppercase tracking-wide text-slate-500">
+        <thead className="text-left text-xs font-medium text-slate-500">
           <tr className="border-b border-paper-200">
             <th scope="col" className="px-4 py-2.5 font-semibold">Tanggal</th>
             <th scope="col" className="px-4 py-2.5 font-semibold">Siswa</th>
@@ -78,8 +83,8 @@ export function AssessmentsTable({ rows }: { rows: AssessmentRow[] }) {
                 </span>
               </td>
               <td className="hidden px-4 py-3 text-slate-600 md:table-cell">{a.readingTitle}</td>
-              <td className="tabular px-4 py-3 text-right text-slate-700">{a.wcpm}</td>
-              <td className="tabular px-4 py-3 text-right text-slate-700">{a.accuracy}%</td>
+              <td className="tabular px-4 py-3 text-right text-slate-700">{metricText(a.wcpm)}</td>
+              <td className="tabular px-4 py-3 text-right text-slate-700">{metricText(a.accuracy, "%")}</td>
               <td className="px-4 py-3">
                 <StatusText status={a.status} />
               </td>

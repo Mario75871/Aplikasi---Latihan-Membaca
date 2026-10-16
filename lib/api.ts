@@ -3,7 +3,7 @@
  *
  * Prinsip:
  * - Satu tempat untuk base URL, token, dan error terstruktur.
- * - Tidak ada logika Adaptive Engine di sini; engine tetap di backend (§38.2).
+ * - Tidak ada logika Adaptive Engine di sini; engine tetap di backend.
  * - Respons backend (snake_case) dipetakan ke view model camelCase di `lib/types.ts`
  *   sehingga komponen UI tidak perlu tahu bentuk mentah API.
  * - Aman dipakai di server component (token dari cookie) maupun client component
@@ -29,8 +29,17 @@ import type {
 // Konfigurasi & token
 // ─────────────────────────────────────────────────────────────
 
-/** Base URL backend. Server pakai API_BASE_URL, browser pakai NEXT_PUBLIC_API_BASE_URL. */
+/**
+ * Base URL backend yang dipakai `request()`.
+ *
+ * - **Browser** → `/api/proxy` (same-origin). Route handler proxy membaca cookie
+ *   httpOnly lalu menyuntik `Authorization: Bearer` (integrasi #5, Fase 0) — token
+ *   tak pernah terlihat JS.
+ * - **Server component** → langsung ke backend (`API_BASE_URL`), token dikirim
+ *   eksplisit via `options.token` (dari `getServerToken()`).
+ */
 export function apiBaseUrl(): string {
+  if (typeof window !== "undefined") return "/api/proxy";
   return (
     process.env.API_BASE_URL ||
     process.env.NEXT_PUBLIC_API_BASE_URL ||
@@ -38,28 +47,30 @@ export function apiBaseUrl(): string {
   );
 }
 
-/** Nama cookie penyimpan token sesi (dibaca server component & browser). */
+/** Nama cookie penyimpan token sesi (httpOnly; hanya di-set server — integrasi #4, D5). */
 export const TOKEN_COOKIE = "bacalaras_token";
 
-/** Baca token dari cookie di browser. Di server kembalikan null (pakai param eksplisit). */
-export function getClientToken(): string | null {
-  if (typeof document === "undefined") return null;
-  const match = document.cookie.match(
-    new RegExp("(?:^|; )" + TOKEN_COOKIE + "=([^;]*)")
-  );
-  return match ? decodeURIComponent(match[1]) : null;
+/**
+ * Simpan token sesi via route handler server (cookie **httpOnly**).
+ * JS tidak dapat membaca token setelah ini (aman dari XSS).
+ */
+export async function setSessionToken(token: string): Promise<void> {
+  if (typeof window === "undefined") return;
+  await fetch("/api/session", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ token }),
+  });
 }
 
-/** Simpan token di cookie (bukan httpOnly; MVP sederhana sesuai D7). */
-export function setClientToken(token: string, maxAgeSec = 60 * 60 * 12): void {
-  if (typeof document === "undefined") return;
-  document.cookie = `${TOKEN_COOKIE}=${encodeURIComponent(token)}; path=/; max-age=${maxAgeSec}; samesite=lax`;
-}
-
-/** Hapus token dari cookie. */
-export function clearClientToken(): void {
-  if (typeof document === "undefined") return;
-  document.cookie = `${TOKEN_COOKIE}=; path=/; max-age=0; samesite=lax`;
+/** Hapus cookie sesi via route handler server. */
+export async function clearSessionToken(): Promise<void> {
+  if (typeof window === "undefined") return;
+  try {
+    await fetch("/api/session", { method: "DELETE" });
+  } catch {
+    /* best-effort */
+  }
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -99,7 +110,10 @@ interface RequestOptions {
 }
 
 async function request<T>(path: string, options: RequestOptions = {}): Promise<T> {
-  const token = options.token ?? getClientToken();
+  // Token eksplisit (server component). Di browser, otentikasi dilakukan oleh proxy
+  // same-origin (`/api/proxy`) yang membaca cookie httpOnly → Bearer (integrasi #5,
+  // Fase 0): token tak pernah terlihat JS.
+  const token = options.token ?? undefined;
   const headers: Record<string, string> = {};
   if (token) headers.Authorization = `Bearer ${token}`;
 
@@ -119,6 +133,9 @@ async function request<T>(path: string, options: RequestOptions = {}): Promise<T
       body,
       signal: options.signal,
       cache: "no-store",
+      // Same-origin (proxy) sudah otomatis membawa cookie; `include` dipertahankan
+      // agar tetap benar bila base URL diarahkan ke backend langsung (mis. server).
+      credentials: "include",
     });
   } catch {
     throw new ApiError(0, "Tidak dapat menghubungi server. Periksa koneksi lalu coba lagi.");
@@ -132,6 +149,16 @@ async function request<T>(path: string, options: RequestOptions = {}): Promise<T
       else if (Array.isArray(data?.detail)) detail = "Data yang dikirim tidak valid.";
     } catch {
       /* biarkan pesan default */
+    }
+    // Integrasi #4 (D.2): 401 → sesi kedaluwarsa/tidak valid. Di browser, bersihkan
+    // cookie sesi & arahkan ke login (kecuali request ke /auth/login itu sendiri).
+    if (res.status === 401 && typeof window !== "undefined" && !path.startsWith("/auth/login")) {
+      void clearSessionToken();
+      const next = window.location.pathname + window.location.search;
+      const loginUrl = `/login?next=${encodeURIComponent(next)}`;
+      if (!window.location.pathname.startsWith("/login")) {
+        window.location.assign(loginUrl);
+      }
     }
     throw new ApiError(res.status, detail);
   }
@@ -204,8 +231,8 @@ interface RawAssessment {
   session_state: string;
   created_at: string;
   completed_at?: string;
-  wcpm?: number;
-  accuracy?: number;
+  wcpm?: number | null;
+  accuracy?: number | null;
   correct_words?: number;
   incorrect_words?: number;
   total_words_read?: number;
@@ -235,8 +262,8 @@ interface RawDashboardStudent {
   trend: {
     assessment_id: string;
     date: string;
-    wcpm: number;
-    accuracy: number;
+    wcpm: number | null;
+    accuracy: number | null;
     comprehension: { retrieve: number; interpret: number; reflect: number };
   }[];
 }
@@ -339,8 +366,8 @@ function mapAssessment(raw: RawAssessment, readingTitle = "", readingLevel: 1 | 
     date: raw.completed_at ?? raw.created_at,
     readingTitle,
     readingLevel,
-    wcpm: raw.wcpm ?? 0,
-    accuracy: raw.accuracy ?? 0,
+    wcpm: raw.wcpm ?? null,
+    accuracy: raw.accuracy ?? null,
     correctWords: raw.correct_words ?? 0,
     incorrectWords: raw.incorrect_words ?? 0,
     totalWordsRead: raw.total_words_read ?? 0,
@@ -410,6 +437,124 @@ export async function logout(token?: string | null): Promise<void> {
   } catch {
     /* logout bersifat best-effort; cookie tetap dibersihkan di pemanggil */
   }
+}
+
+// ─────────────────────────────────────────────────────────────
+// Endpoint: Config (ambang resmi — integrasi #4, D.1 / aturan #9)
+// ─────────────────────────────────────────────────────────────
+
+export interface Thresholds {
+  accuracyLow: number;
+  accuracyHigh: number;
+  comprehensionMin: number;
+}
+
+interface RawThresholds {
+  accuracy_low: number;
+  accuracy_high: number;
+  comprehension_min: number;
+}
+
+/** Cache nilai ambang dari server selama sesi (hindari permintaan berulang). */
+let _thresholdsCache: Thresholds | null = null;
+
+/**
+ * Ambil ambang resmi dari backend (`GET /config/thresholds`).
+ *
+ * Integrasi #4 (D.1): frontend **mengonsumsi** nilai ini saat runtime (satu sumber
+ * kebenaran), bukan hanya via test anti-drift. Nilai statis di `lib/tokens.ts` tetap
+ * dipakai sebagai **fallback** bila permintaan gagal — frontend tetap HANYA presentasi.
+ */
+export async function getThresholds(token?: string | null): Promise<Thresholds> {
+  if (_thresholdsCache) return _thresholdsCache;
+  const raw = await request<RawThresholds>("/config/thresholds", { token });
+  const value: Thresholds = {
+    accuracyLow: raw.accuracy_low,
+    accuracyHigh: raw.accuracy_high,
+    comprehensionMin: raw.comprehension_min,
+  };
+  _thresholdsCache = value;
+  return value;
+}
+
+/** Kosongkan cache ambang (untuk test / setelah logout). */
+export function resetThresholdsCache(): void {
+  _thresholdsCache = null;
+}
+
+// ─────────────────────────────────────────────────────────────
+// Konfigurasi audio (integrasi #6, D1) — runtime FE tahu batas durasi
+// ─────────────────────────────────────────────────────────────
+
+export interface AudioConfig {
+  targetSampleRate: number;
+  maxAudioBytes: number;
+  maxAudioDurationSec: number;
+}
+
+interface RawAudioConfig {
+  target_sample_rate: number;
+  max_audio_bytes: number;
+  max_audio_duration_sec: number;
+}
+
+let _audioConfigCache: AudioConfig | null = null;
+
+/**
+ * Ambil konfigurasi audio resmi dari backend (`GET /config/audio`).
+ *
+ * Integrasi #6 (D1c): FE **mengonsumsi** batas durasi (bukan hanya 10 MB) saat runtime
+ * — siswa ditolak di klien sebelum upload besar, bukan setelah menunggu 422. Bila
+ * permintaan gagal → `null` (pemanggil memakai fallback konstanta cermin backend di
+ * `lib/audio-wav.ts`). Frontend tetap HANYA presentasi: keputusan tetap di backend.
+ */
+export async function getAudioConfig(
+  token?: string | null
+): Promise<AudioConfig | null> {
+  if (_audioConfigCache) return _audioConfigCache;
+  try {
+    const raw = await request<RawAudioConfig>("/config/audio", { token });
+    const value: AudioConfig = {
+      targetSampleRate: raw.target_sample_rate,
+      maxAudioBytes: raw.max_audio_bytes,
+      maxAudioDurationSec: raw.max_audio_duration_sec,
+    };
+    _audioConfigCache = value;
+    return value;
+  } catch {
+    return null; // pemanggil memakai fallback konstanta (null-safe)
+  }
+}
+
+/** Kosongkan cache konfigurasi audio (untuk test / setelah logout). */
+export function resetAudioConfigCache(): void {
+  _audioConfigCache = null;
+}
+
+export interface RegisterResponse {
+  token: string;
+  username: string;
+  expiresAt: string;
+}
+
+/**
+ * Daftar akun guru baru (FR-01 lanjutan).
+ *
+ * CATATAN: backend `POST /auth/register` BELUM tersedia (backend hanya punya
+ * `/auth/login` + `/auth/logout`). Fungsi ini disiapkan agar begitu endpoint ada,
+ * frontend langsung jalan. Selama endpoint belum ada, pemanggil akan menerima
+ * ApiError dan menampilkan pesan ramah ("Pendaftaran belum tersedia").
+ */
+export async function register(
+  name: string,
+  email: string,
+  password: string
+): Promise<RegisterResponse> {
+  const raw = await request<{ token: string; username: string; expires_at: string }>(
+    "/auth/register",
+    { method: "POST", body: { name, email, password }, token: null }
+  );
+  return { token: raw.token, username: raw.username, expiresAt: raw.expires_at };
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -517,8 +662,8 @@ export async function createAssessment(
 
 export interface UploadAudioResult {
   assessmentId: string;
-  wcpm: number;
-  accuracy: number;
+  wcpm: number | null;
+  accuracy: number | null;
   isDemoFallback: boolean;
 }
 
@@ -526,9 +671,40 @@ export interface UploadAudioResult {
 export async function uploadAssessmentAudio(
   assessmentId: string,
   blob: Blob,
-  filename = "rekaman.webm",
+  filename = "rekaman.wav",
   token?: string | null
 ): Promise<UploadAudioResult> {
+  // Integrasi #6 (Fase D, Opsi A): unggah langsung ke Supabase Storage via signed
+  // URL (bypass batas body Vercel 4.5 MB), lalu minta backend memproses objek itu.
+  const signed = await getAudioUploadUrl(assessmentId, token).catch(() => null);
+  if (signed && signed.mode === "signed" && signed.signed_url) {
+    try {
+      const put = await fetch(signed.signed_url, {
+        method: "PUT",
+        body: blob,
+        headers: {
+          "content-type": blob.type || "audio/wav",
+          "x-upsert": "true",
+        },
+      });
+      if (!put.ok) throw new Error(`upload ${put.status}`);
+      const raw = await request<RawAssessment>(`/assessments/${assessmentId}/audio`, {
+        method: "POST",
+        body: { audio_path: signed.path },
+        token,
+      });
+      return {
+        assessmentId: raw.id,
+        wcpm: raw.wcpm ?? null,
+        accuracy: raw.accuracy ?? null,
+        isDemoFallback: Boolean(raw.is_demo_fallback),
+      };
+    } catch {
+      // jatuh ke fallback multipart di bawah
+    }
+  }
+
+  // Fallback (mode demo/in-memory, Storage tak dikonfigurasi, atau PUT gagal).
   const form = new FormData();
   form.append("audio", blob, filename);
   const raw = await request<RawAssessment>(`/assessments/${assessmentId}/audio`, {
@@ -538,10 +714,32 @@ export async function uploadAssessmentAudio(
   });
   return {
     assessmentId: raw.id,
-    wcpm: raw.wcpm ?? 0,
-    accuracy: raw.accuracy ?? 0,
+    wcpm: raw.wcpm ?? null,
+    accuracy: raw.accuracy ?? null,
     isDemoFallback: Boolean(raw.is_demo_fallback),
   };
+}
+
+/** Bentuk respons `POST /assessments/{id}/audio/upload-url` (integrasi #6, Opsi A). */
+export interface AudioUploadUrl {
+  mode: "signed" | "multipart";
+  path?: string;
+  signed_url?: string;
+  token?: string;
+}
+
+/**
+ * Minta signed upload URL agar browser mengunggah audio **langsung ke Supabase**
+ * (bypass Vercel). Bila Storage tak dikonfigurasi → `mode: "multipart"`.
+ */
+export async function getAudioUploadUrl(
+  assessmentId: string,
+  token?: string | null
+): Promise<AudioUploadUrl> {
+  return request<AudioUploadUrl>(
+    `/assessments/${assessmentId}/audio/upload-url`,
+    { method: "POST", token }
+  );
 }
 
 export async function submitComprehension(
@@ -571,6 +769,26 @@ export async function getAssessment(
   }
   const reading = await getReading(raw.reading_id, token).catch(() => null);
   return mapAssessment(raw, reading?.title ?? "", reading?.level ?? 1);
+}
+
+/**
+ * Ambil signed URL audio untuk asesmen (integrasi #5, D3). `null` bila rekaman
+ * tidak tersedia (404) atau gagal (502) — pemanggil menampilkan pesan, bukan error.
+ * Signed URL berumur pendek (~10 menit) → jangan di-cache lama.
+ */
+export async function getAssessmentAudioUrl(
+  assessmentId: string,
+  token?: string | null
+): Promise<string | null> {
+  try {
+    const res = await request<{ url: string; expires_in: number }>(
+      `/assessments/${assessmentId}/audio-url`,
+      { token }
+    );
+    return res.url ?? null;
+  } catch {
+    return null;
+  }
 }
 
 /** Riwayat asesmen COMPLETED untuk satu siswa (urut lama → baru). */

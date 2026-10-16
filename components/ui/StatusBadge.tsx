@@ -4,8 +4,9 @@ import { InfoTip } from "./Tooltip";
 import { cn } from "@/lib/utils";
 
 /**
- * StatusText — status sebagai TITIK kecil berwarna + teks (bukan pil penuh warna).
- * Tetap membawa makna lewat teks (bukan warna saja) sesuai WCAG 2.1 AA §9.
+ * StatusText — status sebagai IKON kecil berwarna + teks (bukan pil penuh).
+ * Ikon (bukan sekadar titik) memperkuat makna dan mengurangi "pil berdot"
+ * seragam; tetap membawa makna lewat teks, bukan warna saja (WCAG 2.1 AA).
  * Dipakai di tabel & daftar guru yang tenang.
  */
 export function StatusText({
@@ -21,9 +22,11 @@ export function StatusText({
   return (
     <span className={cn("inline-flex items-center gap-2 text-sm text-slate-700", className)}>
       {showDot && (
-        <span
-          aria-hidden
-          className={cn("inline-block h-2.5 w-2.5 shrink-0 rounded-full", meta.dot)}
+        <Icon
+          name={meta.icon}
+          size={15}
+          strokeWidth={2}
+          className={cn("shrink-0", meta.text)}
         />
       )}
       <span className="font-medium">{meta.label}</span>
@@ -62,7 +65,7 @@ export function StatusBadge({
   );
 }
 
-/** StatusBadgeWithInfo — pill + tooltip istilah teknis. Pakai hemat (bukan tiap baris). */
+/** StatusBadgeWithInfo — pill + tooltip penjelasan (bahasa pengguna, tanpa jargon). */
 export function StatusBadgeWithInfo({
   status,
   className,
@@ -74,10 +77,7 @@ export function StatusBadgeWithInfo({
   return (
     <span className={cn("inline-flex items-center gap-1", className)}>
       <StatusBadge status={status} />
-      <InfoTip
-        label={`Penjelasan status ${meta.label}`}
-        text={`${meta.tooltip} Istilah teknis: ${meta.engine}.`}
-      />
+      <InfoTip label={`Penjelasan status ${meta.label}`} text={meta.tooltip} />
     </span>
   );
 }
@@ -98,7 +98,7 @@ const LEGEND_ORDER: DisplayStatus[] = [
 
 /**
  * StatusLegend — SATU legenda status untuk footer halaman (menggantikan ikon (i)
- * di setiap baris). Menjelaskan tiap status + istilah engine + rujukan aturan.
+ * di setiap baris). Menjelaskan tiap status dalam bahasa pengguna.
  */
 export function StatusLegend({ className }: { className?: string }) {
   const items: { key: DisplayStatus; meta: typeof UNASSESSED_META }[] = LEGEND_ORDER.map((k) => ({
@@ -110,17 +110,22 @@ export function StatusLegend({ className }: { className?: string }) {
     <section
       aria-label="Keterangan status"
       className={cn(
-        "rounded-lg border border-paper-200 bg-paper-50 px-4 py-3",
+        "rounded-lg border border-paper-200 bg-paper-100/60 px-4 py-3",
         className
       )}
     >
-      <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500">
+      <p className="mb-2 text-xs font-semibold text-slate-500">
         Keterangan status
       </p>
       <ul className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-slate-600">
         {items.map(({ key, meta }) => (
           <li key={key} className="flex items-center gap-2">
-            <span aria-hidden className={cn("inline-block h-2.5 w-2.5 rounded-full", meta.dot)} />
+            <Icon
+              name={meta.icon}
+              size={14}
+              strokeWidth={2}
+              className={cn("shrink-0", meta.text)}
+            />
             <span className="font-semibold text-slate-700">{meta.label}</span>
             <span className="text-slate-500">{meta.tooltip}</span>
           </li>

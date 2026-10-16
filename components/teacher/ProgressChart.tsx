@@ -1,16 +1,17 @@
 /**
- * ProgressChart — line chart sederhana (SVG) untuk tren WCPM/Accuracy (§33).
+ * ProgressChart — line chart sederhana (SVG) untuk tren WCPM/Akurasi.
  * Tanpa dependensi eksternal. Sertakan tabel data untuk aksesibilitas.
  */
 export function ProgressChart({
   points,
   labels,
-  color = "#3B82F6",
+  color = "#BD582E",
   unit = "",
   height = 180,
   milestones,
 }: {
-  points: number[];
+  /** Nilai per titik; null = tidak tersedia (titik dilewati, bukan dianggap 0). */
+  points: (number | null)[];
   labels: string[];
   color?: string;
   unit?: string;
@@ -22,12 +23,17 @@ export function ProgressChart({
   const innerW = width - pad.left - pad.right;
   const innerH = height - pad.top - pad.bottom;
 
-  const max = Math.max(...points, 1) * 1.15;
+  // Hanya titik dengan nilai valid yang digambar (null ≠ 0).
+  const numeric = points.filter((p): p is number => p !== null && p !== undefined);
+  const max = (numeric.length ? Math.max(...numeric) : 1) * 1.15;
   const min = 0;
   const x = (i: number) => pad.left + (points.length === 1 ? innerW / 2 : (i / (points.length - 1)) * innerW);
   const y = (v: number) => pad.top + innerH - ((v - min) / (max - min)) * innerH;
 
-  const path = points.map((p, i) => `${i === 0 ? "M" : "L"} ${x(i)} ${y(p)}`).join(" ");
+  const path = points
+    .map((p, i) => (p === null || p === undefined ? null : `${i === 0 ? "M" : "L"} ${x(i)} ${y(p)}`))
+    .filter((s): s is string => s !== null)
+    .join(" ");
 
   return (
     <figure className="w-full">
@@ -40,7 +46,7 @@ export function ProgressChart({
             x2={width - pad.right}
             y1={pad.top + t * innerH}
             y2={pad.top + t * innerH}
-            stroke="#E2E8F0"
+            stroke="#E7E0D3"
             strokeWidth={1}
           />
         ))}
@@ -53,7 +59,7 @@ export function ProgressChart({
               x2={x(m.index)}
               y1={pad.top}
               y2={pad.top + innerH}
-              stroke="#CBD5E1"
+              stroke="#CAC3B9"
               strokeDasharray="4 4"
             />
             <text x={x(m.index)} y={height - 6} textAnchor="middle" className="fill-slate-400 text-[10px]">
@@ -66,18 +72,21 @@ export function ProgressChart({
         <path d={path} fill="none" stroke={color} strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" />
 
         {/* points */}
-        {points.map((p, i) => (
-          <g key={i}>
-            <circle cx={x(i)} cy={y(p)} r={i === points.length - 1 ? 5 : 4} fill={color} />
-            <text x={x(i)} y={y(p) - 10} textAnchor="middle" className="fill-slate-600 text-[10px] font-semibold">
-              {p}
-              {unit}
-            </text>
-            <text x={x(i)} y={height - 16} textAnchor="middle" className="fill-slate-400 text-[10px]">
-              {labels[i]}
-            </text>
-          </g>
-        ))}
+        {points.map((p, i) => {
+          if (p === null || p === undefined) return null;
+          return (
+            <g key={i}>
+              <circle cx={x(i)} cy={y(p)} r={i === points.length - 1 ? 5 : 4} fill={color} />
+              <text x={x(i)} y={y(p) - 10} textAnchor="middle" className="fill-slate-600 text-[10px] font-semibold">
+                {p}
+                {unit}
+              </text>
+              <text x={x(i)} y={height - 16} textAnchor="middle" className="fill-slate-400 text-[10px]">
+                {labels[i]}
+              </text>
+            </g>
+          );
+        })}
       </svg>
 
       {/* tabel alternatif (aksesibilitas) */}
@@ -88,7 +97,7 @@ export function ProgressChart({
           </thead>
           <tbody>
             {points.map((p, i) => (
-              <tr key={i}><td>{labels[i]}</td><td>{p}{unit}</td></tr>
+              <tr key={i}><td>{labels[i]}</td><td>{p === null || p === undefined ? "—" : `${p}${unit}`}</td></tr>
             ))}
           </tbody>
         </table>

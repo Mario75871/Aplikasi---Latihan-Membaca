@@ -5,8 +5,8 @@ import { cn } from "@/lib/utils";
  * Icon set BacaLaras — satu set ikon outline yang konsisten.
  *
  * Mengapa SVG inline (bukan lucide-react)? Proyek belum memiliki dependency ikon
- * dan kita tidak ingin menambah library besar (§Batasan #1). Ikon di bawah mengikuti
- * gaya Lucide (outline, stroke 2px, grid 24px) sesuai design-system.md §6, sehingga
+ * dan kita tidak ingin menambah library besar. Ikon di bawah mengikuti
+ * gaya Lucide (outline, stroke 2px, grid 24px), sehingga
  * mudah ditukar ke lucide-react di masa depan tanpa mengubah API.
  */
 

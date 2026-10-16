@@ -10,7 +10,7 @@ export interface Step {
 /**
  * Stepper — indikator langkah linear.
  * Dipakai di alur Mulai Asesmen guru (Pilih Siswa → Pilih Bacaan → Serahkan)
- * dan Student Mode (Baca → Rekam → Kirim → Jawab) sesuai design-system §7.12.
+ * dan Student Mode (Baca → Rekam → Kirim → Jawab).
  *
  * Aksesibel: memakai <ol> dengan aria-current untuk langkah aktif.
  */
@@ -39,9 +39,9 @@ export function Stepper({
             <div
               className={cn(
                 "flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-semibold",
-                active && "bg-brand-500 text-white",
+                active && "bg-brand-600 text-white",
                 done && "bg-brand-50 text-brand-700",
-                !active && !done && "bg-slate-100 text-slate-500"
+                !active && !done && "bg-paper-100 text-slate-500"
               )}
               aria-current={active ? "step" : undefined}
             >
@@ -50,8 +50,8 @@ export function Stepper({
                 className={cn(
                   "flex h-5 w-5 items-center justify-center rounded-full text-xs",
                   active && "bg-white/25 text-white",
-                  done && "bg-brand-500 text-white",
-                  !active && !done && "bg-slate-200 text-slate-500"
+                  done && "bg-brand-600 text-white",
+                  !active && !done && "bg-paper-200 text-slate-500"
                 )}
               >
                 {done ? <Icon name="check-circle" size={14} strokeWidth={2.5} /> : i + 1}

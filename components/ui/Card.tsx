@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 
 /**
  * Card — panel tenang: garis tipis + spasi, tanpa bayangan bersarang.
- * Radius `lg`, border `paper-200`, bg putih.
+ * Radius `lg`, border `paper-200`, permukaan paper bertint (bukan #fff murni).
  */
 export function Card({
   className,
@@ -11,7 +11,7 @@ export function Card({
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn("rounded-lg border border-paper-200 bg-white p-6", className)}
+      className={cn("rounded-lg border border-paper-200 bg-white p-5", className)}
       {...props}
     />
   );

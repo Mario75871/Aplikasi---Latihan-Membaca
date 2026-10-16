@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Icon, type IconName } from "@/components/ui/icons";
 import { cn } from "@/lib/utils";
-import { logout as apiLogout, clearClientToken, getClientToken } from "@/lib/api";
+import { logout as apiLogout, clearSessionToken } from "@/lib/api";
 
 const NAV: { href: string; label: string; icon: IconName }[] = [
   { href: "/dashboard", label: "Dashboard", icon: "layout-dashboard" },
@@ -16,7 +16,7 @@ const NAV: { href: string; label: string; icon: IconName }[] = [
 ];
 
 /**
- * TeacherShell — sidebar + topbar untuk Teacher Mode (design-system §5.3).
+ * TeacherShell — sidebar + topbar untuk Teacher Mode.
  * Ikon memakai satu set konsisten (components/ui/icons.tsx).
  * Responsif: sidebar tetap di `lg`, berubah menjadi bar atas yang dapat digulir di mobile/tablet.
  */
@@ -38,8 +38,9 @@ export function TeacherShell({
   const router = useRouter();
 
   async function handleLogout() {
-    await apiLogout(getClientToken());
-    clearClientToken();
+    // Token tidak lagi dibaca JS (cookie httpOnly): proxy yang menyuntik Bearer.
+    await apiLogout();
+    await clearSessionToken();
     router.push("/login");
     router.refresh();
   }
@@ -47,16 +48,16 @@ export function TeacherShell({
   return (
     <div className="flex min-h-screen bg-paper">
       {/* Sidebar — desktop */}
-      <aside className="hidden w-56 shrink-0 border-r border-paper-200 bg-paper-50 p-4 lg:block">
-        <Link href="/dashboard" className="mb-6 flex items-center gap-2 px-2">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-500 text-white">
+      <aside className="hidden w-56 shrink-0 border-r border-paper-200 bg-paper-100/50 p-4 lg:block">
+        <Link href="/dashboard" className="mb-6 flex items-center gap-2.5 px-2">
+          <span className="flex h-8 w-8 items-center justify-center rounded-md bg-slate-900 text-paper">
             <Icon name="book-open" size={18} />
           </span>
-          <span className="font-display text-lg font-extrabold text-slate-800">
+          <span className="font-serif text-xl font-semibold tracking-tight text-slate-900">
             BacaLaras
           </span>
         </Link>
-        <nav aria-label="Navigasi utama" className="space-y-1">
+        <nav aria-label="Navigasi utama" className="space-y-0.5">
           {NAV.map((item) => {
             const active =
               pathname === item.href || pathname.startsWith(item.href + "/");
@@ -66,13 +67,17 @@ export function TeacherShell({
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
+                  "relative flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium transition-colors",
                   active
-                    ? "bg-brand-50 text-brand-700"
+                    ? "text-slate-900 shadow-[inset_2px_0_0_#BD582E]"
                     : "text-slate-600 hover:bg-paper-100"
                 )}
               >
-                <Icon name={item.icon} size={20} />
+                <Icon
+                  name={item.icon}
+                  size={20}
+                  className={active ? "text-brand-600" : "text-slate-400"}
+                />
                 {item.label}
               </Link>
             );
@@ -82,10 +87,10 @@ export function TeacherShell({
 
       {/* Main */}
       <div className="flex min-w-0 flex-1 flex-col">
-        <header className="sticky top-0 z-sticky border-b border-paper-200 bg-paper-50/95 backdrop-blur">
+        <header className="sticky top-0 z-sticky border-b border-paper-200 bg-paper/95 backdrop-blur">
           <div className="flex items-center justify-between gap-4 px-4 py-3 md:px-6">
             <div className="flex min-w-0 items-center gap-3">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-500 text-white lg:hidden">
+              <span className="flex h-8 w-8 items-center justify-center rounded-md bg-slate-900 text-paper lg:hidden">
                 <Icon name="book-open" size={18} />
               </span>
               <div className="min-w-0">
@@ -102,7 +107,7 @@ export function TeacherShell({
               <button
                 type="button"
                 onClick={handleLogout}
-                className="hidden h-9 items-center gap-1.5 rounded-full bg-paper-100 px-3 text-sm font-medium text-slate-600 hover:bg-paper-200 focus-visible:outline-none sm:flex"
+                className="hidden h-9 items-center gap-1.5 rounded-md bg-paper-100 px-3 text-sm font-medium text-slate-600 hover:bg-paper-200 focus-visible:outline-none sm:flex"
                 title="Keluar"
               >
                 <Icon name="log-out" size={16} />
@@ -112,7 +117,7 @@ export function TeacherShell({
                 type="button"
                 onClick={handleLogout}
                 aria-label="Keluar"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-paper-100 text-slate-600 hover:bg-paper-200 focus-visible:outline-none sm:hidden"
+                className="flex h-9 w-9 items-center justify-center rounded-md bg-paper-100 text-slate-600 hover:bg-paper-200 focus-visible:outline-none sm:hidden"
               >
                 <Icon name="log-out" size={18} />
               </button>
@@ -135,11 +140,15 @@ export function TeacherShell({
                   className={cn(
                     "flex shrink-0 items-center gap-2 rounded-md px-3 py-2 text-sm font-medium",
                     active
-                      ? "bg-brand-50 text-brand-700"
+                      ? "text-slate-900 shadow-[inset_0_-2px_0_#BD582E]"
                       : "text-slate-600 hover:bg-paper-100"
                   )}
                 >
-                  <Icon name={item.icon} size={18} />
+                  <Icon
+                    name={item.icon}
+                    size={18}
+                    className={active ? "text-brand-600" : "text-slate-400"}
+                  />
                   {item.label}
                 </Link>
               );

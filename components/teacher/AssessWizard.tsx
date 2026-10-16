@@ -237,7 +237,7 @@ export function AssessWizard({
 
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="rounded-lg border border-paper-200 bg-white p-5">
-              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+              <p className="text-xs font-semibold text-slate-500">
                 Siswa
               </p>
               <p className="mt-1 font-serif text-h3 font-semibold text-slate-900">
@@ -252,7 +252,7 @@ export function AssessWizard({
             </div>
 
             <div className="rounded-lg border border-paper-200 bg-white p-5">
-              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+              <p className="text-xs font-semibold text-slate-500">
                 Bacaan
               </p>
               <p className="mt-1 font-serif text-h3 font-semibold text-slate-900">

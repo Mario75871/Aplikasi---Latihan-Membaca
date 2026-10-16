@@ -56,11 +56,11 @@ export function ErrorState({
         className
       )}
     >
-      <span className="flex h-14 w-14 items-center justify-center rounded-full bg-amber-100 text-amber-600">
+      <span className="flex h-14 w-14 items-center justify-center rounded-full bg-amber-100 text-amber-700">
         <Icon name="alert-triangle" size={28} />
       </span>
-      <h3 className="font-display text-lg font-bold text-amber-800">{title}</h3>
-      <p className="max-w-sm text-sm text-amber-700">{description}</p>
+      <h3 className="font-display text-lg font-bold text-amber-900">{title}</h3>
+      <p className="max-w-sm text-sm text-amber-800">{description}</p>
       <div className="mt-2 flex flex-wrap items-center justify-center gap-2">
         {onRetry && (
           <Button variant="primary" size="md" onClick={onRetry}>

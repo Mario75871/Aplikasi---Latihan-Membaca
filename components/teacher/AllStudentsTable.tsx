@@ -35,7 +35,7 @@ export function AllStudentsTable({ students }: { students: AllStudentRow[] }) {
   return (
     <div className="overflow-hidden rounded-lg border border-paper-200 bg-white">
       <table className="w-full text-sm">
-        <thead className="text-left text-xs uppercase tracking-wide text-slate-500">
+        <thead className="text-left text-xs font-medium text-slate-500">
           <tr className="border-b border-paper-200">
             <th scope="col" className="px-4 py-2.5 font-semibold">Nama</th>
             <th scope="col" className="hidden px-4 py-2.5 font-semibold sm:table-cell">Kelas</th>

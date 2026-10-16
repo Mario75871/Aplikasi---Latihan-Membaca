@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/icons";
 import { cn } from "@/lib/utils";
-import { login, setClientToken, ApiError } from "@/lib/api";
+import { login, setSessionToken, ApiError } from "@/lib/api";
 
 /** Formulir login guru (FR-01, D7). Token disimpan di cookie untuk server component. */
 function LoginForm() {
@@ -38,8 +39,8 @@ function LoginForm() {
     setLoading(true);
     try {
       const res = await login(email.trim(), password);
-      // Simpan token agar server component bisa memakainya (D7).
-      setClientToken(res.token);
+      // Simpan token di cookie httpOnly via route handler server (integrasi #4, D5).
+      await setSessionToken(res.token);
       const next = searchParams.get("next");
       router.push(next && next.startsWith("/") ? next : "/dashboard");
       router.refresh();
@@ -58,12 +59,19 @@ function LoginForm() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-paper-50 p-4 sm:p-6">
       <div className="w-full max-w-sm rounded-xl border border-paper-200 bg-white p-6 sm:p-8">
-        <div className="mb-6 text-center">
-          <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand-500 text-white">
-            <Icon name="book-open" size={26} />
+        <div className="mb-6">
+          <div className="mb-4 flex items-center gap-2.5">
+            <span className="flex h-9 w-9 items-center justify-center rounded-md bg-slate-900 text-paper">
+              <Icon name="book-open" size={20} />
+            </span>
+            <span className="font-serif text-2xl font-semibold tracking-tight text-slate-900">
+              BacaLaras
+            </span>
           </div>
-          <h1 className="font-display text-2xl font-extrabold text-slate-800">BacaLaras</h1>
-          <p className="mt-1 text-sm text-slate-500">Baca. Didengar. Dipahami.</p>
+          <h1 className="font-serif text-h2 font-semibold text-slate-900">
+            Masuk sebagai guru
+          </h1>
+          <p className="mt-1 text-sm italic text-slate-500">Baca. Didengar. Dipahami.</p>
         </div>
 
         <form onSubmit={submit} className="space-y-4" noValidate>
@@ -138,7 +146,17 @@ function LoginForm() {
           </Button>
         </form>
 
-        <p className="mt-6 text-center text-xs leading-relaxed text-slate-400">
+        <p className="mt-6 text-center text-sm text-slate-500">
+          Belum punya akun?{" "}
+          <Link
+            href="/register"
+            className="font-semibold text-brand-700 underline-offset-2 hover:underline focus-visible:outline-none"
+          >
+            Daftar
+          </Link>
+        </p>
+
+        <p className="mt-4 text-center text-xs leading-relaxed text-slate-400">
           BacaLaras membantu asesmen, bukan alat diagnosis medis.
         </p>
       </div>

@@ -39,12 +39,12 @@ export default async function StudentProgressPage({
           <Card>
             <CardHeader
               title="Tren WCPM"
-              description="Milestone (Awal/Tengah/Akhir Tahun) hanya penanda monitoring (BR-08), bukan batas jumlah asesmen."
+              description="Penanda Awal/Tengah/Akhir Tahun hanya untuk pemantauan, bukan batas jumlah asesmen."
             />
             <ProgressChart
               points={assessments.map((a) => a.wcpm)}
               labels={labels}
-              color="#3B82F6"
+              color="#BD582E"
               milestones={[{ index: 0, label: "Awal" }]}
             />
           </Card>
@@ -55,7 +55,7 @@ export default async function StudentProgressPage({
               <ProgressChart
                 points={assessments.map((a) => a.accuracy)}
                 labels={labels}
-                color="#059669"
+                color="#346841"
                 unit="%"
               />
             </Card>
@@ -71,7 +71,7 @@ export default async function StudentProgressPage({
                   )
                 )}
                 labels={labels}
-                color="#7C3AED"
+                color="#6B4B82"
                 unit="%"
               />
             </Card>
@@ -98,7 +98,7 @@ export default async function StudentProgressPage({
             <CardHeader title="Riwayat Asesmen" />
             <div className="overflow-hidden rounded-md border border-paper-200">
               <table className="w-full text-sm">
-                <thead className="bg-paper-50 text-left text-xs uppercase text-slate-500">
+                <thead className="bg-paper-50 text-left text-xs font-medium text-slate-500">
                   <tr>
                     <th scope="col" className="px-4 py-2 font-semibold">#</th>
                     <th scope="col" className="px-4 py-2 font-semibold">Tanggal</th>
@@ -112,9 +112,11 @@ export default async function StudentProgressPage({
                     <tr key={a.id}>
                       <td className="tabular px-4 py-2 text-slate-400">{i + 1}</td>
                       <td className="px-4 py-2 text-slate-600">{formatDateID(a.date)}</td>
-                      <td className="tabular px-4 py-2 text-right text-slate-700">{a.wcpm}</td>
                       <td className="tabular px-4 py-2 text-right text-slate-700">
-                        {a.accuracy}%
+                        {a.wcpm === null ? "–" : a.wcpm}
+                      </td>
+                      <td className="tabular px-4 py-2 text-right text-slate-700">
+                        {a.accuracy === null ? "–" : `${a.accuracy}%`}
                       </td>
                       <td className="px-4 py-2">
                         <StatusText status={a.status} />

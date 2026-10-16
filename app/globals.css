@@ -1,6 +1,11 @@
-/* Font: Lora (judul & bacaan, serif), Nunito (display anak), Inter (UI/tabel), Andika (fallback bacaan) */
-@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Andika:wght@400;700&display=swap");
+@import "../tokens.css";
+
+/* BacaLaras — genre: editorial · tone: hangat/tenang/dipercaya ·
+   anchor hue ≈ 80 (oat paper) · aksen terakota (#BD582E) ·
+   sidik jari: ledger + hairline, 2 famili (Newsreader + Geist). */
+
+/* Font dimuat lewat next/font (self-host, non-blocking) di app/layout.tsx:
+   Newsreader (judul & bacaan) + Geist (UI/tabel). Tidak ada @import yang memblokir. */
 
 @tailwind base;
 @tailwind components;
@@ -8,10 +13,10 @@
 
 @layer base {
   :root {
-    /* Teacher Mode (default) */
-    --surface-bg: #faf7f0; /* paper — hangat seperti kertas */
-    --surface-card: #ffffff;
-    --text-primary: #1e293b; /* slate-800 */
+    /* Teacher Mode (default) — merujuk token kanonik di tokens.css */
+    --surface-bg: var(--color-paper);
+    --surface-card: var(--color-paper-card);
+    --text-primary: var(--color-ink-2);
     --density: 1rem;
   }
 

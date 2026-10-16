@@ -76,8 +76,8 @@ export function StudentPicker({
                 aria-checked={selected}
                 onClick={() => onSelect(s.id)}
                 className={cn(
-                  "flex items-center gap-3 rounded-lg border-2 bg-white p-3 text-left transition-all",
-                  "hover:border-brand-300 hover:shadow-sm focus-visible:outline-none",
+                  "flex items-center gap-3 rounded-lg border-2 bg-white p-3 text-left transition-colors",
+                  "hover:border-brand-300 focus-visible:outline-none",
                   selected ? "border-brand-500 bg-brand-50/50" : "border-slate-200"
                 )}
               >

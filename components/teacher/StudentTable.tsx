@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { StatusText } from "@/components/ui/StatusBadge";
 import { Icon } from "@/components/ui/icons";
 import { EmptyState } from "@/components/ui/States";
+import { cn } from "@/lib/utils";
 import type { AdaptiveStatus } from "@/lib/tokens";
 
 export interface StudentRow {
@@ -30,7 +31,7 @@ function Metric({ value, unit }: { value: number | null; unit?: string }) {
 }
 
 /**
- * StudentTable — daftar siswa yang TENANG (§32).
+ * StudentTable — daftar siswa yang tenang.
  * Tidak ada tombol biru di setiap baris. Aksi muncul saat baris di-hover/fokus;
  * klik baris (atau Enter/Space) membuka profil siswa. Keyboard-friendly.
  * Warna hanya dipakai untuk status; angka akurasi/pemahaman netral (tanpa merah).
@@ -60,7 +61,7 @@ export function StudentTable({
       {/* Desktop / tablet */}
       <div className="hidden overflow-hidden rounded-lg border border-paper-200 bg-white md:block">
         <table className="w-full text-sm">
-          <thead className="text-left text-xs uppercase tracking-wide text-slate-500">
+          <thead className="text-left text-xs font-medium text-slate-500">
             <tr className="border-b border-paper-200">
               <th scope="col" className="px-4 py-2.5 font-semibold">Siswa</th>
               <th scope="col" className="px-4 py-2.5 text-right font-semibold">WCPM</th>
@@ -74,6 +75,7 @@ export function StudentTable({
             {students.map((s) => {
               const hasAssessment = s.status !== null;
               const target = hasAssessment ? `/students/${s.id}` : `/assess?student=${s.id}`;
+              const needsAttention = s.status === "INTERVENE";
               return (
                 <tr
                   key={s.id}
@@ -87,10 +89,19 @@ export function StudentTable({
                       router.push(target);
                     }
                   }}
-                  className="group cursor-pointer transition-colors hover:bg-paper-50 focus-visible:bg-paper-50 focus-visible:outline-none"
+                  className={cn(
+                    "group cursor-pointer transition-colors hover:bg-paper-50 focus-visible:bg-paper-50 focus-visible:outline-none",
+                    needsAttention && "bg-rose-50/40"
+                  )}
                 >
                   <td className="px-4 py-3">
                     <span className="flex items-center gap-2">
+                      {needsAttention && (
+                        <span
+                          aria-hidden
+                          className="inline-block h-4 w-0.5 shrink-0 rounded-full bg-rose-400"
+                        />
+                      )}
                       <span className="font-medium text-slate-800 group-hover:text-brand-700">
                         {s.name}
                       </span>

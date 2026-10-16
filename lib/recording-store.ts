@@ -16,9 +16,9 @@
 export interface PendingRecording {
   /** Object URL untuk memutar ulang (URL.createObjectURL). */
   url: string;
-  /** Blob audio asli (audio/webm) — siap dikirim ke backend saat backend siap. */
+  /** Blob audio (WAV 16 kHz mono setelah konversi) — siap dikirim ke backend. */
   blob: Blob;
-  /** Durasi audio AKTUAL (detik) → Reading Time WCPM (§14). Tidak diubah. */
+  /** Durasi audio AKTUAL (detik) → Reading Time WCPM. Tidak diubah. */
   durationSec: number;
   readingId?: string;
   studentId?: string;

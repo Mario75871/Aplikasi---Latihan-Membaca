@@ -27,7 +27,8 @@ export function PageHeader({
   );
 }
 
-/** SectionTitle — label kecil uppercase untuk memisahkan bagian di dalam halaman. */
+/** SectionTitle — label kecil untuk memisahkan bagian di dalam halaman.
+ *  Sengaja TIDAK uppercase-lebar-huruf (hindari "eyebrow di setiap seksi"). */
 export function SectionTitle({
   children,
   className,
@@ -38,7 +39,7 @@ export function SectionTitle({
   return (
     <h3
       className={cn(
-        "text-xs font-semibold uppercase tracking-wide text-slate-500",
+        "font-serif text-sm font-semibold text-slate-600",
         className
       )}
     >

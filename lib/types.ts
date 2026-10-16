@@ -3,7 +3,7 @@
  *
  * Tipe di sini adalah "view model" yang dipakai komponen UI. Pemetaan dari
  * respons API backend (snake_case) ke bentuk ini dilakukan di `lib/api.ts`.
- * Tidak ada logika Adaptive Engine di sini — engine tetap di backend (§38.2).
+ * Tidak ada logika Adaptive Engine di sini — engine tetap di backend.
  */
 import type { AdaptiveStatus, Competency } from "./tokens";
 
@@ -60,8 +60,8 @@ export interface AssessmentResult {
   date: string;
   readingTitle: string;
   readingLevel: 1 | 2 | 3;
-  wcpm: number;
-  accuracy: number;
+  wcpm: number | null;
+  accuracy: number | null;
   correctWords: number;
   incorrectWords: number;
   totalWordsRead: number;
@@ -104,8 +104,8 @@ export interface ReadingText {
 export interface TrendPoint {
   assessmentId: string;
   date: string;
-  wcpm: number;
-  accuracy: number;
+  wcpm: number | null;
+  accuracy: number | null;
   comprehension: ComprehensionScore;
 }
 

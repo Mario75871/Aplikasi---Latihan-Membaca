@@ -47,7 +47,7 @@ export function Meter({
         aria-label={label}
       >
         <div
-          className={cn("h-full rounded-full transition-all", color)}
+          className={cn("h-full rounded-full transition-[width] duration-minor ease-out", color)}
           style={{ width: `${pct}%` }}
         />
         {markers.map((m) => (

@@ -29,10 +29,10 @@ export function StatTile({
 }) {
   return (
     <div className={cn("rounded-lg border border-paper-200 bg-white p-4", className)}>
-      <p className="text-xs font-medium uppercase tracking-wide text-slate-500">{label}</p>
+      <p className="text-xs font-medium text-slate-500">{label}</p>
       <p
         className={cn(
-          "tabular mt-1 text-metric font-bold",
+          "tabular mt-1 text-metric font-bold tracking-tight",
           empty ? "text-slate-300" : "text-slate-900"
         )}
       >
