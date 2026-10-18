@@ -1,0 +1,48 @@
+# BacaLaras — root .gitignore (integrasi #4, Fase E.1)
+
+# === Secrets (JANGAN pernah di-commit) ===
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# === Python ===
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# === Node / Next.js ===
+node_modules/
+**/node_modules/
+.next/
+out/
+build/
+*.tsbuildinfo
+
+# === Model & artefak besar ===
+*.bin
+*.pt
+*.onnx
+backend/results/
+framework-whisper-2/
+!backend/reading_framework/
+
+# === Audio hasil uji (bukan aset) ===
+*.wav
+*.mp3
+!backend/tests/**/fixtures/**/*.wav
+
+# === Scratch lokal (skrip probe, cadangan seed) ===
+.scratch/
+.ruff_cache/
+
+# === OS / editor ===
+.DS_Store
+*.pem
+.vscode/
+.idea/

@@ -1,0 +1,10 @@
+/__pycache__/
+/.pytest_cache/
+
+# === Secrets lokal (JANGAN di-commit) — integrasi #4, Fase E ===
+# .env.test.example memuat kredensial Supabase sungguhan (termasuk service
+# role key), jadi TIDAK boleh di-unignore di sini.
+.env
+.env.*
+!.env.example
+audio-uploads/
