@@ -1,0 +1,1379 @@
+{
+  "audio_path": "audio/indo_5.wav",
+  "model": "base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "cpu_threads": 4,
+  "audio_seconds": 134.152,
+  "load_seconds": 1.2618170409987215,
+  "elapsed_seconds": 9.421224332996644,
+  "rtf": 0.07022798268379633,
+  "xrt": 14.239338249292038,
+  "language": "id",
+  "language_probability": 1.0,
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 8.88,
+      "text": "Grafik perkembangan evolusi manusia menunjukkan perubahan manusia dari nenek-moyang pirmata hingga menjadi manusia modern, jo mock sapinense.",
+      "avg_logprob": -0.30468369215384294,
+      "no_speech_prob": 0.001779841142706573,
+      "compression_ratio": 1.5290697674418605,
+      "words": [
+        {
+          "word": " Grafik",
+          "start": 0.0,
+          "end": 0.64,
+          "probability": 0.6622684448957443
+        },
+        {
+          "word": " perkembangan",
+          "start": 0.64,
+          "end": 1.2,
+          "probability": 0.8979423344135284
+        },
+        {
+          "word": " evolusi",
+          "start": 1.2,
+          "end": 1.68,
+          "probability": 0.5484398454427719
+        },
+        {
+          "word": " manusia",
+          "start": 1.68,
+          "end": 2.2,
+          "probability": 0.9771960377693176
+        },
+        {
+          "word": " menunjukkan",
+          "start": 2.2,
+          "end": 2.82,
+          "probability": 0.9195201545953751
+        },
+        {
+          "word": " perubahan",
+          "start": 2.82,
+          "end": 3.2,
+          "probability": 0.9430244565010071
+        },
+        {
+          "word": " manusia",
+          "start": 3.2,
+          "end": 3.8,
+          "probability": 0.9874687194824219
+        },
+        {
+          "word": " dari",
+          "start": 3.8,
+          "end": 4.04,
+          "probability": 0.9280877113342285
+        },
+        {
+          "word": " nenek",
+          "start": 4.04,
+          "end": 4.36,
+          "probability": 0.9006015956401825
+        },
+        {
+          "word": "-moyang",
+          "start": 4.36,
+          "end": 4.66,
+          "probability": 0.6287209093570709
+        },
+        {
+          "word": " pirmata",
+          "start": 4.66,
+          "end": 5.16,
+          "probability": 0.7912846803665161
+        },
+        {
+          "word": " hingga",
+          "start": 5.16,
+          "end": 5.7,
+          "probability": 0.9931338727474213
+        },
+        {
+          "word": " menjadi",
+          "start": 5.7,
+          "end": 5.98,
+          "probability": 0.9328045845031738
+        },
+        {
+          "word": " manusia",
+          "start": 5.98,
+          "end": 6.56,
+          "probability": 0.9844371378421783
+        },
+        {
+          "word": " modern,",
+          "start": 6.56,
+          "end": 6.92,
+          "probability": 0.8106405138969421
+        },
+        {
+          "word": " jo",
+          "start": 7.76,
+          "end": 7.82,
+          "probability": 0.21104630827903748
+        },
+        {
+          "word": " mock",
+          "start": 7.82,
+          "end": 8.02,
+          "probability": 0.0831470713019371
+        },
+        {
+          "word": " sapinense.",
+          "start": 8.02,
+          "end": 8.88,
+          "probability": 0.593217929204305
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "start": 10.34,
+      "end": 18.04,
+      "text": "Proces evolusi ini ber langsung selama juta antawun dan dipengaruhi oleh perubahan linkungan serta kemampuan beradaptasi.",
+      "avg_logprob": -0.30468369215384294,
+      "no_speech_prob": 0.001779841142706573,
+      "compression_ratio": 1.5290697674418605,
+      "words": [
+        {
+          "word": " Proces",
+          "start": 10.34,
+          "end": 10.76,
+          "probability": 0.6915825307369232
+        },
+        {
+          "word": " evolusi",
+          "start": 10.76,
+          "end": 11.38,
+          "probability": 0.9446375370025635
+        },
+        {
+          "word": " ini",
+          "start": 11.38,
+          "end": 11.58,
+          "probability": 0.7355978488922119
+        },
+        {
+          "word": " ber",
+          "start": 11.58,
+          "end": 11.88,
+          "probability": 0.7723826766014099
+        },
+        {
+          "word": " langsung",
+          "start": 11.88,
+          "end": 12.82,
+          "probability": 0.7248344719409943
+        },
+        {
+          "word": " selama",
+          "start": 12.82,
+          "end": 13.18,
+          "probability": 0.8307424485683441
+        },
+        {
+          "word": " juta",
+          "start": 13.18,
+          "end": 13.48,
+          "probability": 0.94941246509552
+        },
+        {
+          "word": " antawun",
+          "start": 13.48,
+          "end": 14.06,
+          "probability": 0.7508803208669027
+        },
+        {
+          "word": " dan",
+          "start": 14.06,
+          "end": 14.2,
+          "probability": 0.9328298568725586
+        },
+        {
+          "word": " dipengaruhi",
+          "start": 14.2,
+          "end": 15.04,
+          "probability": 0.9385282874107361
+        },
+        {
+          "word": " oleh",
+          "start": 15.04,
+          "end": 15.18,
+          "probability": 0.9978717565536499
+        },
+        {
+          "word": " perubahan",
+          "start": 15.18,
+          "end": 15.6,
+          "probability": 0.9785323739051819
+        },
+        {
+          "word": " linkungan",
+          "start": 15.6,
+          "end": 16.24,
+          "probability": 0.6584716339906057
+        },
+        {
+          "word": " serta",
+          "start": 16.24,
+          "end": 16.6,
+          "probability": 0.8796100318431854
+        },
+        {
+          "word": " kemampuan",
+          "start": 16.6,
+          "end": 17.14,
+          "probability": 0.9620595574378967
+        },
+        {
+          "word": " beradaptasi.",
+          "start": 17.14,
+          "end": 18.04,
+          "probability": 0.9477893114089966
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "start": 18.96,
+      "end": 28.92,
+      "text": "Padahal, nenek-moyang manusia mulai mengimbangkan kemampuan berjalan dengan 2 kaki, yang membantu mereka bergerak lebih efisien di daratan.",
+      "avg_logprob": -0.3069841843242793,
+      "no_speech_prob": 0.18049860000610352,
+      "compression_ratio": 1.5541125541125542,
+      "words": [
+        {
+          "word": " Padahal,",
+          "start": 18.96,
+          "end": 19.8,
+          "probability": 0.5735990703105927
+        },
+        {
+          "word": " nenek",
+          "start": 20.44,
+          "end": 21.12,
+          "probability": 0.7251370698213577
+        },
+        {
+          "word": "-moyang",
+          "start": 21.12,
+          "end": 21.4,
+          "probability": 0.5631920993328094
+        },
+        {
+          "word": " manusia",
+          "start": 21.4,
+          "end": 21.84,
+          "probability": 0.9687714278697968
+        },
+        {
+          "word": " mulai",
+          "start": 21.84,
+          "end": 22.22,
+          "probability": 0.9808632731437683
+        },
+        {
+          "word": " mengimbangkan",
+          "start": 22.22,
+          "end": 23.08,
+          "probability": 0.6587427705526352
+        },
+        {
+          "word": " kemampuan",
+          "start": 23.08,
+          "end": 23.8,
+          "probability": 0.8019223287701607
+        },
+        {
+          "word": " berjalan",
+          "start": 23.8,
+          "end": 24.26,
+          "probability": 0.9135046799977621
+        },
+        {
+          "word": " dengan",
+          "start": 24.26,
+          "end": 24.56,
+          "probability": 0.9870234727859497
+        },
+        {
+          "word": " 2",
+          "start": 24.56,
+          "end": 24.82,
+          "probability": 0.6094809174537659
+        },
+        {
+          "word": " kaki,",
+          "start": 24.82,
+          "end": 25.22,
+          "probability": 0.8192123174667358
+        },
+        {
+          "word": " yang",
+          "start": 25.84,
+          "end": 25.96,
+          "probability": 0.9428921937942505
+        },
+        {
+          "word": " membantu",
+          "start": 25.96,
+          "end": 26.38,
+          "probability": 0.9711728096008301
+        },
+        {
+          "word": " mereka",
+          "start": 26.38,
+          "end": 26.66,
+          "probability": 0.9848451018333435
+        },
+        {
+          "word": " bergerak",
+          "start": 26.66,
+          "end": 27.18,
+          "probability": 0.8828308383623759
+        },
+        {
+          "word": " lebih",
+          "start": 27.18,
+          "end": 27.48,
+          "probability": 0.9957414865493774
+        },
+        {
+          "word": " efisien",
+          "start": 27.48,
+          "end": 28.3,
+          "probability": 0.511152575413386
+        },
+        {
+          "word": " di",
+          "start": 28.3,
+          "end": 28.52,
+          "probability": 0.7695522904396057
+        },
+        {
+          "word": " daratan.",
+          "start": 28.52,
+          "end": 28.92,
+          "probability": 0.7601662874221802
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "start": 30.16,
+      "end": 38.8,
+      "text": "Salah satu kelompok awal yang terkenal adalah awus terlalu pelop-lop lipi di joskust yang hidup sekitar 4.2 hingga 2 juta tahun yang lalu.",
+      "avg_logprob": -0.3069841843242793,
+      "no_speech_prob": 0.18049860000610352,
+      "compression_ratio": 1.5541125541125542,
+      "words": [
+        {
+          "word": " Salah",
+          "start": 30.16,
+          "end": 30.6,
+          "probability": 0.8957432508468628
+        },
+        {
+          "word": " satu",
+          "start": 30.6,
+          "end": 30.86,
+          "probability": 0.789700448513031
+        },
+        {
+          "word": " kelompok",
+          "start": 30.86,
+          "end": 31.24,
+          "probability": 0.9520041346549988
+        },
+        {
+          "word": " awal",
+          "start": 31.24,
+          "end": 31.54,
+          "probability": 0.9667463302612305
+        },
+        {
+          "word": " yang",
+          "start": 31.54,
+          "end": 31.68,
+          "probability": 0.9181765913963318
+        },
+        {
+          "word": " terkenal",
+          "start": 31.68,
+          "end": 32.16,
+          "probability": 0.9749744534492493
+        },
+        {
+          "word": " adalah",
+          "start": 32.16,
+          "end": 32.42,
+          "probability": 0.9964889287948608
+        },
+        {
+          "word": " awus",
+          "start": 32.42,
+          "end": 32.84,
+          "probability": 0.44714677333831787
+        },
+        {
+          "word": " terlalu",
+          "start": 32.84,
+          "end": 33.2,
+          "probability": 0.7895212372144064
+        },
+        {
+          "word": " pelop",
+          "start": 33.2,
+          "end": 33.44,
+          "probability": 0.49601154029369354
+        },
+        {
+          "word": "-lop",
+          "start": 33.44,
+          "end": 33.64,
+          "probability": 0.7888573606808981
+        },
+        {
+          "word": " lipi",
+          "start": 33.64,
+          "end": 33.94,
+          "probability": 0.4752874383702874
+        },
+        {
+          "word": " di",
+          "start": 33.94,
+          "end": 34.06,
+          "probability": 0.363506555557251
+        },
+        {
+          "word": " joskust",
+          "start": 34.06,
+          "end": 34.68,
+          "probability": 0.4178197644650936
+        },
+        {
+          "word": " yang",
+          "start": 34.68,
+          "end": 35.34,
+          "probability": 0.48601600527763367
+        },
+        {
+          "word": " hidup",
+          "start": 35.34,
+          "end": 35.7,
+          "probability": 0.9930714964866638
+        },
+        {
+          "word": " sekitar",
+          "start": 35.7,
+          "end": 36.06,
+          "probability": 0.9848562479019165
+        },
+        {
+          "word": " 4",
+          "start": 36.06,
+          "end": 36.32,
+          "probability": 0.9378920793533325
+        },
+        {
+          "word": ".2",
+          "start": 36.32,
+          "end": 36.92,
+          "probability": 0.8345400393009186
+        },
+        {
+          "word": " hingga",
+          "start": 36.92,
+          "end": 37.36,
+          "probability": 0.9927976429462433
+        },
+        {
+          "word": " 2",
+          "start": 37.36,
+          "end": 37.62,
+          "probability": 0.93219393491745
+        },
+        {
+          "word": " juta",
+          "start": 37.62,
+          "end": 37.88,
+          "probability": 0.9648371040821075
+        },
+        {
+          "word": " tahun",
+          "start": 37.88,
+          "end": 38.16,
+          "probability": 0.8419229388237
+        },
+        {
+          "word": " yang",
+          "start": 38.16,
+          "end": 38.38,
+          "probability": 0.9864554405212402
+        },
+        {
+          "word": " lalu.",
+          "start": 38.38,
+          "end": 38.8,
+          "probability": 0.968037337064743
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "start": 39.72,
+      "end": 46.22,
+      "text": "Padahal berikutnya, muncul genus Jomop seperti Jomok habilias dan Jomok erectus.",
+      "avg_logprob": -0.3069841843242793,
+      "no_speech_prob": 0.18049860000610352,
+      "compression_ratio": 1.5541125541125542,
+      "words": [
+        {
+          "word": " Padahal",
+          "start": 39.72,
+          "end": 40.56,
+          "probability": 0.9689508477846781
+        },
+        {
+          "word": " berikutnya,",
+          "start": 40.56,
+          "end": 41.24,
+          "probability": 0.9852580626805624
+        },
+        {
+          "word": " muncul",
+          "start": 41.68,
+          "end": 42.14,
+          "probability": 0.960613340139389
+        },
+        {
+          "word": " genus",
+          "start": 42.14,
+          "end": 42.52,
+          "probability": 0.7469784021377563
+        },
+        {
+          "word": " Jomop",
+          "start": 42.52,
+          "end": 43.02,
+          "probability": 0.4767844080924988
+        },
+        {
+          "word": " seperti",
+          "start": 43.02,
+          "end": 43.72,
+          "probability": 0.7562991976737976
+        },
+        {
+          "word": " Jomok",
+          "start": 43.72,
+          "end": 44.24,
+          "probability": 0.9058831731478373
+        },
+        {
+          "word": " habilias",
+          "start": 44.24,
+          "end": 44.88,
+          "probability": 0.6370579898357391
+        },
+        {
+          "word": " dan",
+          "start": 44.88,
+          "end": 45.12,
+          "probability": 0.991378903388977
+        },
+        {
+          "word": " Jomok",
+          "start": 45.12,
+          "end": 45.58,
+          "probability": 0.9873125354448954
+        },
+        {
+          "word": " erectus.",
+          "start": 45.58,
+          "end": 46.22,
+          "probability": 0.7833063006401062
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "start": 46.22,
+      "end": 59.22,
+      "text": "Homo habilis dikenal karena kemampuannya menggunakan alat-alat batu sederhana, sedangkan Homo erectus memiliki tubuh yang lebih mirip manusia modern dan mampu menyebar ke berbagai wilayah di luar Afrika.",
+      "avg_logprob": -0.23842330600904382,
+      "no_speech_prob": 0.15332435071468353,
+      "compression_ratio": 1.3904109589041096,
+      "words": [
+        {
+          "word": " Homo",
+          "start": 46.22,
+          "end": 47.72,
+          "probability": 0.6006739735603333
+        },
+        {
+          "word": " habilis",
+          "start": 47.72,
+          "end": 48.34,
+          "probability": 0.5895685851573944
+        },
+        {
+          "word": " dikenal",
+          "start": 48.34,
+          "end": 48.78,
+          "probability": 0.882432758808136
+        },
+        {
+          "word": " karena",
+          "start": 48.78,
+          "end": 49.14,
+          "probability": 0.9201260805130005
+        },
+        {
+          "word": " kemampuannya",
+          "start": 49.14,
+          "end": 49.8,
+          "probability": 0.9165146827697754
+        },
+        {
+          "word": " menggunakan",
+          "start": 49.8,
+          "end": 50.3,
+          "probability": 0.9818405508995056
+        },
+        {
+          "word": " alat",
+          "start": 50.3,
+          "end": 50.72,
+          "probability": 0.9364399909973145
+        },
+        {
+          "word": "-alat",
+          "start": 50.72,
+          "end": 50.96,
+          "probability": 0.9203458031018575
+        },
+        {
+          "word": " batu",
+          "start": 50.96,
+          "end": 51.28,
+          "probability": 0.8188984990119934
+        },
+        {
+          "word": " sederhana,",
+          "start": 51.28,
+          "end": 51.82,
+          "probability": 0.8697050412495931
+        },
+        {
+          "word": " sedangkan",
+          "start": 52.36,
+          "end": 52.98,
+          "probability": 0.9741708238919576
+        },
+        {
+          "word": " Homo",
+          "start": 52.98,
+          "end": 53.28,
+          "probability": 0.8362878561019897
+        },
+        {
+          "word": " erectus",
+          "start": 53.28,
+          "end": 53.74,
+          "probability": 0.8527241349220276
+        },
+        {
+          "word": " memiliki",
+          "start": 53.74,
+          "end": 54.14,
+          "probability": 0.9073601166407267
+        },
+        {
+          "word": " tubuh",
+          "start": 54.14,
+          "end": 54.56,
+          "probability": 0.9783918857574463
+        },
+        {
+          "word": " yang",
+          "start": 54.56,
+          "end": 54.74,
+          "probability": 0.9907021522521973
+        },
+        {
+          "word": " lebih",
+          "start": 54.74,
+          "end": 54.94,
+          "probability": 0.9924325942993164
+        },
+        {
+          "word": " mirip",
+          "start": 54.94,
+          "end": 55.22,
+          "probability": 0.9369638860225677
+        },
+        {
+          "word": " manusia",
+          "start": 55.22,
+          "end": 55.66,
+          "probability": 0.9819603860378265
+        },
+        {
+          "word": " modern",
+          "start": 55.66,
+          "end": 56.0,
+          "probability": 0.6267659068107605
+        },
+        {
+          "word": " dan",
+          "start": 56.0,
+          "end": 56.4,
+          "probability": 0.8920887112617493
+        },
+        {
+          "word": " mampu",
+          "start": 56.4,
+          "end": 56.8,
+          "probability": 0.8743391434351603
+        },
+        {
+          "word": " menyebar",
+          "start": 56.8,
+          "end": 57.2,
+          "probability": 0.9277693033218384
+        },
+        {
+          "word": " ke",
+          "start": 57.2,
+          "end": 57.4,
+          "probability": 0.9283261895179749
+        },
+        {
+          "word": " berbagai",
+          "start": 57.4,
+          "end": 57.78,
+          "probability": 0.7585699558258057
+        },
+        {
+          "word": " wilayah",
+          "start": 57.78,
+          "end": 58.34,
+          "probability": 0.850770095984141
+        },
+        {
+          "word": " di",
+          "start": 58.34,
+          "end": 58.54,
+          "probability": 0.9218852519989014
+        },
+        {
+          "word": " luar",
+          "start": 58.54,
+          "end": 58.8,
+          "probability": 0.9713541567325592
+        },
+        {
+          "word": " Afrika.",
+          "start": 58.8,
+          "end": 59.22,
+          "probability": 0.699610248208046
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "start": 64.16,
+      "end": 66.86,
+      "text": "Terima kasih.",
+      "avg_logprob": -0.7930548741267278,
+      "no_speech_prob": 0.2637086808681488,
+      "compression_ratio": 1.08,
+      "words": [
+        {
+          "word": " Terima",
+          "start": 64.16,
+          "end": 65.56,
+          "probability": 0.31329894810914993
+        },
+        {
+          "word": " kasih.",
+          "start": 65.56,
+          "end": 66.86,
+          "probability": 0.9391272068023682
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "start": 82.41999999999999,
+      "end": 85.22,
+      "text": "Terima kasih.",
+      "avg_logprob": -0.7930548741267278,
+      "no_speech_prob": 0.2637086808681488,
+      "compression_ratio": 1.08,
+      "words": [
+        {
+          "word": " Terima",
+          "start": 82.41999999999999,
+          "end": 83.82,
+          "probability": 0.5527634248137474
+        },
+        {
+          "word": " kasih.",
+          "start": 83.82,
+          "end": 85.22,
+          "probability": 0.9989805817604065
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "start": 89.22,
+      "end": 95.6,
+      "text": "300 ribu tahun yang lalu. Manusia moderen kemudian menyebar keberbagi belahan dunia",
+      "avg_logprob": -0.32449454691099083,
+      "no_speech_prob": 0.16133904457092285,
+      "compression_ratio": 1.54337899543379,
+      "words": [
+        {
+          "word": " 300",
+          "start": 89.22,
+          "end": 89.62,
+          "probability": 0.00491331797093153
+        },
+        {
+          "word": " ribu",
+          "start": 89.62,
+          "end": 90.14,
+          "probability": 0.47405876219272614
+        },
+        {
+          "word": " tahun",
+          "start": 90.14,
+          "end": 90.4,
+          "probability": 0.9676976203918457
+        },
+        {
+          "word": " yang",
+          "start": 90.4,
+          "end": 90.64,
+          "probability": 0.9801647663116455
+        },
+        {
+          "word": " lalu.",
+          "start": 90.64,
+          "end": 91.24,
+          "probability": 0.9627276659011841
+        },
+        {
+          "word": " Manusia",
+          "start": 91.96,
+          "end": 92.86,
+          "probability": 0.9297778209050497
+        },
+        {
+          "word": " moderen",
+          "start": 92.86,
+          "end": 93.34,
+          "probability": 0.57626973092556
+        },
+        {
+          "word": " kemudian",
+          "start": 93.34,
+          "end": 93.78,
+          "probability": 0.9912208120028178
+        },
+        {
+          "word": " menyebar",
+          "start": 93.78,
+          "end": 94.22,
+          "probability": 0.9298567573229471
+        },
+        {
+          "word": " keberbagi",
+          "start": 94.22,
+          "end": 94.84,
+          "probability": 0.7866783514618874
+        },
+        {
+          "word": " belahan",
+          "start": 94.84,
+          "end": 95.1,
+          "probability": 0.7118710279464722
+        },
+        {
+          "word": " dunia",
+          "start": 95.1,
+          "end": 95.6,
+          "probability": 0.9943551123142242
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "start": 95.6,
+      "end": 102.36,
+      "text": "dan mengembangkan bahasa. Sini, budaya, serta teknologia yang semakin complex.",
+      "avg_logprob": -0.32449454691099083,
+      "no_speech_prob": 0.16133904457092285,
+      "compression_ratio": 1.54337899543379,
+      "words": [
+        {
+          "word": " dan",
+          "start": 95.6,
+          "end": 95.9,
+          "probability": 0.8821429014205933
+        },
+        {
+          "word": " mengembangkan",
+          "start": 95.9,
+          "end": 96.56,
+          "probability": 0.7973816320300102
+        },
+        {
+          "word": " bahasa.",
+          "start": 96.56,
+          "end": 97.16,
+          "probability": 0.9841075241565704
+        },
+        {
+          "word": " Sini,",
+          "start": 97.7,
+          "end": 98.16,
+          "probability": 0.27707047760486603
+        },
+        {
+          "word": " budaya,",
+          "start": 98.78,
+          "end": 99.18,
+          "probability": 0.7762451171875
+        },
+        {
+          "word": " serta",
+          "start": 99.84,
+          "end": 100.28,
+          "probability": 0.9324764311313629
+        },
+        {
+          "word": " teknologia",
+          "start": 100.28,
+          "end": 100.96,
+          "probability": 0.6521310210227966
+        },
+        {
+          "word": " yang",
+          "start": 100.96,
+          "end": 101.34,
+          "probability": 0.9956130981445312
+        },
+        {
+          "word": " semakin",
+          "start": 101.34,
+          "end": 101.72,
+          "probability": 0.9429464638233185
+        },
+        {
+          "word": " complex.",
+          "start": 101.72,
+          "end": 102.36,
+          "probability": 0.16025085747241974
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "start": 103.6,
+      "end": 108.68,
+      "text": "Graphik evolusi manusia memperlihatkan bahwa perubahan tersebut berlangsung secara bertahap",
+      "avg_logprob": -0.32449454691099083,
+      "no_speech_prob": 0.16133904457092285,
+      "compression_ratio": 1.54337899543379,
+      "words": [
+        {
+          "word": " Graphik",
+          "start": 103.6,
+          "end": 104.16,
+          "probability": 0.5106090605258942
+        },
+        {
+          "word": " evolusi",
+          "start": 104.16,
+          "end": 104.6,
+          "probability": 0.5662687520186106
+        },
+        {
+          "word": " manusia",
+          "start": 104.6,
+          "end": 105.12,
+          "probability": 0.9870513081550598
+        },
+        {
+          "word": " memperlihatkan",
+          "start": 105.12,
+          "end": 105.92,
+          "probability": 0.8045827627182007
+        },
+        {
+          "word": " bahwa",
+          "start": 105.92,
+          "end": 106.28,
+          "probability": 0.9896093606948853
+        },
+        {
+          "word": " perubahan",
+          "start": 106.28,
+          "end": 106.68,
+          "probability": 0.9497087597846985
+        },
+        {
+          "word": " tersebut",
+          "start": 106.68,
+          "end": 107.18,
+          "probability": 0.9829346140225729
+        },
+        {
+          "word": " berlangsung",
+          "start": 107.18,
+          "end": 107.8,
+          "probability": 0.8857754468917847
+        },
+        {
+          "word": " secara",
+          "start": 107.8,
+          "end": 108.2,
+          "probability": 0.9487018287181854
+        },
+        {
+          "word": " bertahap",
+          "start": 108.2,
+          "end": 108.68,
+          "probability": 0.9417062004407247
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "start": 108.68,
+      "end": 115.26,
+      "text": "dan berjabang, bukan dalam satu garis lurus. Setiap kelompok manusia purba memiliki",
+      "avg_logprob": -0.32449454691099083,
+      "no_speech_prob": 0.16133904457092285,
+      "compression_ratio": 1.54337899543379,
+      "words": [
+        {
+          "word": " dan",
+          "start": 108.68,
+          "end": 108.88,
+          "probability": 0.9918883442878723
+        },
+        {
+          "word": " berjabang,",
+          "start": 108.88,
+          "end": 109.68,
+          "probability": 0.7712659314274788
+        },
+        {
+          "word": " bukan",
+          "start": 110.06,
+          "end": 110.44,
+          "probability": 0.9636844396591187
+        },
+        {
+          "word": " dalam",
+          "start": 110.44,
+          "end": 110.68,
+          "probability": 0.9945356845855713
+        },
+        {
+          "word": " satu",
+          "start": 110.68,
+          "end": 111.06,
+          "probability": 0.9478097558021545
+        },
+        {
+          "word": " garis",
+          "start": 111.06,
+          "end": 111.44,
+          "probability": 0.7150439321994781
+        },
+        {
+          "word": " lurus.",
+          "start": 111.44,
+          "end": 112.0,
+          "probability": 0.9067237973213196
+        },
+        {
+          "word": " Setiap",
+          "start": 113.14,
+          "end": 113.58,
+          "probability": 0.8780713081359863
+        },
+        {
+          "word": " kelompok",
+          "start": 113.58,
+          "end": 113.94,
+          "probability": 0.8348239262898763
+        },
+        {
+          "word": " manusia",
+          "start": 113.94,
+          "end": 114.4,
+          "probability": 0.9899011850357056
+        },
+        {
+          "word": " purba",
+          "start": 114.4,
+          "end": 114.78,
+          "probability": 0.5216802060604095
+        },
+        {
+          "word": " memiliki",
+          "start": 114.78,
+          "end": 115.26,
+          "probability": 0.9631416996320089
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "start": 115.26,
+      "end": 120.42,
+      "text": "di karakteristik tersendiri, dan beberapa spesias hidup pada masa yang bersamaan.",
+      "avg_logprob": -0.35034729141584586,
+      "no_speech_prob": 0.2361607551574707,
+      "compression_ratio": 1.4755244755244756,
+      "words": [
+        {
+          "word": " di",
+          "start": 115.26,
+          "end": 115.26,
+          "probability": 0.184711292386055
+        },
+        {
+          "word": " karakteristik",
+          "start": 115.26,
+          "end": 116.0,
+          "probability": 0.7868490368127823
+        },
+        {
+          "word": " tersendiri,",
+          "start": 116.0,
+          "end": 116.6,
+          "probability": 0.6410211026668549
+        },
+        {
+          "word": " dan",
+          "start": 117.24,
+          "end": 117.46,
+          "probability": 0.9951072931289673
+        },
+        {
+          "word": " beberapa",
+          "start": 117.46,
+          "end": 117.9,
+          "probability": 0.9963623285293579
+        },
+        {
+          "word": " spesias",
+          "start": 117.9,
+          "end": 118.36,
+          "probability": 0.640599399805069
+        },
+        {
+          "word": " hidup",
+          "start": 118.36,
+          "end": 118.84,
+          "probability": 0.9926269054412842
+        },
+        {
+          "word": " pada",
+          "start": 118.84,
+          "end": 119.08,
+          "probability": 0.9157003164291382
+        },
+        {
+          "word": " masa",
+          "start": 119.08,
+          "end": 119.4,
+          "probability": 0.993252694606781
+        },
+        {
+          "word": " yang",
+          "start": 119.4,
+          "end": 119.6,
+          "probability": 0.9976621866226196
+        },
+        {
+          "word": " bersamaan.",
+          "start": 119.6,
+          "end": 120.42,
+          "probability": 0.6845690210660299
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "start": 121.1,
+      "end": 127.48,
+      "text": "Dengan demikian, evolusi manusia merupakan proses panjang yang menghasilkan kerajaman kemampuan",
+      "avg_logprob": -0.35034729141584586,
+      "no_speech_prob": 0.2361607551574707,
+      "compression_ratio": 1.4755244755244756,
+      "words": [
+        {
+          "word": " Dengan",
+          "start": 121.1,
+          "end": 121.9,
+          "probability": 0.9288734197616577
+        },
+        {
+          "word": " demikian,",
+          "start": 121.9,
+          "end": 122.44,
+          "probability": 0.9274784127871195
+        },
+        {
+          "word": " evolusi",
+          "start": 123.18,
+          "end": 123.64,
+          "probability": 0.43429699540138245
+        },
+        {
+          "word": " manusia",
+          "start": 123.64,
+          "end": 124.16,
+          "probability": 0.9713337421417236
+        },
+        {
+          "word": " merupakan",
+          "start": 124.16,
+          "end": 124.6,
+          "probability": 0.9828954140345255
+        },
+        {
+          "word": " proses",
+          "start": 124.6,
+          "end": 125.0,
+          "probability": 0.7604086101055145
+        },
+        {
+          "word": " panjang",
+          "start": 125.0,
+          "end": 125.5,
+          "probability": 0.9747859537601471
+        },
+        {
+          "word": " yang",
+          "start": 125.5,
+          "end": 125.76,
+          "probability": 0.9605207443237305
+        },
+        {
+          "word": " menghasilkan",
+          "start": 125.76,
+          "end": 126.38,
+          "probability": 0.8959497809410095
+        },
+        {
+          "word": " kerajaman",
+          "start": 126.38,
+          "end": 126.86,
+          "probability": 0.5580430291593075
+        },
+        {
+          "word": " kemampuan",
+          "start": 126.86,
+          "end": 127.48,
+          "probability": 0.9656563252210617
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "start": 127.48,
+      "end": 129.68,
+      "text": "dan ciri manusia modern saat ini.",
+      "avg_logprob": -0.35034729141584586,
+      "no_speech_prob": 0.2361607551574707,
+      "compression_ratio": 1.4755244755244756,
+      "words": [
+        {
+          "word": " dan",
+          "start": 127.48,
+          "end": 127.72,
+          "probability": 0.972672164440155
+        },
+        {
+          "word": " ciri",
+          "start": 127.72,
+          "end": 128.06,
+          "probability": 0.5451730042695999
+        },
+        {
+          "word": " manusia",
+          "start": 128.06,
+          "end": 128.54,
+          "probability": 0.9898925125598907
+        },
+        {
+          "word": " modern",
+          "start": 128.54,
+          "end": 128.84,
+          "probability": 0.8657593131065369
+        },
+        {
+          "word": " saat",
+          "start": 128.84,
+          "end": 129.22,
+          "probability": 0.9966166615486145
+        },
+        {
+          "word": " ini.",
+          "start": 129.22,
+          "end": 129.68,
+          "probability": 0.9945579767227173
+        }
+      ]
+    }
+  ],
+  "text": "Grafik perkembangan evolusi manusia menunjukkan perubahan manusia dari nenek-moyang pirmata hingga menjadi manusia modern, jo mock sapinense. Proces evolusi ini ber langsung selama juta antawun dan dipengaruhi oleh perubahan linkungan serta kemampuan beradaptasi. Padahal, nenek-moyang manusia mulai mengimbangkan kemampuan berjalan dengan 2 kaki, yang membantu mereka bergerak lebih efisien di daratan. Salah satu kelompok awal yang terkenal adalah awus terlalu pelop-lop lipi di joskust yang hidup sekitar 4.2 hingga 2 juta tahun yang lalu. Padahal berikutnya, muncul genus Jomop seperti Jomok habilias dan Jomok erectus. Homo habilis dikenal karena kemampuannya menggunakan alat-alat batu sederhana, sedangkan Homo erectus memiliki tubuh yang lebih mirip manusia modern dan mampu menyebar ke berbagai wilayah di luar Afrika. Terima kasih. Terima kasih. 300 ribu tahun yang lalu. Manusia moderen kemudian menyebar keberbagi belahan dunia dan mengembangkan bahasa. Sini, budaya, serta teknologia yang semakin complex. Graphik evolusi manusia memperlihatkan bahwa perubahan tersebut berlangsung secara bertahap dan berjabang, bukan dalam satu garis lurus. Setiap kelompok manusia purba memiliki di karakteristik tersendiri, dan beberapa spesias hidup pada masa yang bersamaan. Dengan demikian, evolusi manusia merupakan proses panjang yang menghasilkan kerajaman kemampuan dan ciri manusia modern saat ini.",
+  "applied_params": {
+    "language": "id",
+    "task": "transcribe",
+    "beam_size": 1,
+    "best_of": 1,
+    "temperature": 0.0,
+    "patience": 1.0,
+    "length_penalty": 1.0,
+    "repetition_penalty": 1.0,
+    "no_repeat_ngram_size": 0,
+    "condition_on_previous_text": false,
+    "initial_prompt": null,
+    "hotwords": null,
+    "prefix": null,
+    "no_speech_threshold": 0.6,
+    "log_prob_threshold": -1.0,
+    "compression_ratio_threshold": 2.4,
+    "suppress_blank": true,
+    "suppress_tokens": [
+      -1
+    ],
+    "max_initial_timestamp": 1.0,
+    "word_timestamps": true,
+    "without_timestamps": false,
+    "vad_filter": false
+  },
+  "peak_rss_mb": 506.34375,
+  "error": "",
+  "reference": "",
+  "wer": null,
+  "cer": null,
+  "exact": null,
+  "breakdown": null
+}

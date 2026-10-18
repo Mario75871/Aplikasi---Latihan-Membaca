@@ -1,0 +1,85 @@
+{
+  "audio_path": "audio/indo_1-1_correct.wav",
+  "model": "base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "cpu_threads": 4,
+  "audio_seconds": 3.328,
+  "load_seconds": 0.9930972909996854,
+  "elapsed_seconds": 0.5976629999995566,
+  "rtf": 0.17958623798063603,
+  "xrt": 5.568355410996613,
+  "language": "id",
+  "language_probability": 1.0,
+  "segments": [
+    {
+      "id": 1,
+      "start": 1.0399999999999998,
+      "end": 2.24,
+      "text": "ibu pergi ke pasar",
+      "avg_logprob": -0.5892687439918518,
+      "no_speech_prob": 0.1856011301279068,
+      "compression_ratio": 0.6923076923076923,
+      "words": [
+        {
+          "word": " ibu",
+          "start": 1.0399999999999998,
+          "end": 1.56,
+          "probability": 0.5973728224635124
+        },
+        {
+          "word": " pergi",
+          "start": 1.56,
+          "end": 1.8,
+          "probability": 0.9936004877090454
+        },
+        {
+          "word": " ke",
+          "start": 1.8,
+          "end": 1.96,
+          "probability": 0.916593611240387
+        },
+        {
+          "word": " pasar",
+          "start": 1.96,
+          "end": 2.24,
+          "probability": 0.9327871203422546
+        }
+      ]
+    }
+  ],
+  "text": "ibu pergi ke pasar",
+  "applied_params": {
+    "language": "id",
+    "task": "transcribe",
+    "beam_size": 1,
+    "best_of": 1,
+    "temperature": 0.0,
+    "patience": 1.0,
+    "length_penalty": 1.0,
+    "repetition_penalty": 1.0,
+    "no_repeat_ngram_size": 0,
+    "condition_on_previous_text": false,
+    "initial_prompt": null,
+    "hotwords": null,
+    "prefix": null,
+    "no_speech_threshold": 0.6,
+    "log_prob_threshold": -1.0,
+    "compression_ratio_threshold": 2.4,
+    "suppress_blank": true,
+    "suppress_tokens": [
+      -1
+    ],
+    "max_initial_timestamp": 1.0,
+    "word_timestamps": true,
+    "without_timestamps": false,
+    "vad_filter": false
+  },
+  "peak_rss_mb": 476.640625,
+  "error": "",
+  "reference": "",
+  "wer": null,
+  "cer": null,
+  "exact": null,
+  "breakdown": null
+}

@@ -1,0 +1,103 @@
+{
+  "audio_path": "audio/indo_3.wav",
+  "model": "base",
+  "device": "cpu",
+  "compute_type": "int8",
+  "cpu_threads": 4,
+  "audio_seconds": 6.144,
+  "load_seconds": 1.4944082500005607,
+  "elapsed_seconds": 1.9464870420051739,
+  "rtf": 0.3168110419930296,
+  "xrt": 3.156455639011477,
+  "language": "id",
+  "language_probability": 1.0,
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.6800000000000004,
+      "end": 3.94,
+      "text": "Jawa, jawa, jawa, jawa, jawa, jawa, jawa",
+      "avg_logprob": -0.5062782090643178,
+      "no_speech_prob": 0.5117871165275574,
+      "compression_ratio": 2.3529411764705883,
+      "words": [
+        {
+          "word": " Jawa,",
+          "start": 0.6800000000000004,
+          "end": 1.3,
+          "probability": 0.3940937714651227
+        },
+        {
+          "word": " jawa,",
+          "start": 1.44,
+          "end": 1.56,
+          "probability": 0.6929728537797928
+        },
+        {
+          "word": " jawa,",
+          "start": 2.0,
+          "end": 2.0,
+          "probability": 0.9397662878036499
+        },
+        {
+          "word": " jawa,",
+          "start": 2.48,
+          "end": 2.7,
+          "probability": 0.96663036942482
+        },
+        {
+          "word": " jawa,",
+          "start": 2.94,
+          "end": 3.14,
+          "probability": 0.9757728576660156
+        },
+        {
+          "word": " jawa,",
+          "start": 3.56,
+          "end": 3.56,
+          "probability": 0.984434187412262
+        },
+        {
+          "word": " jawa",
+          "start": 3.56,
+          "end": 3.94,
+          "probability": 0.9878691136837006
+        }
+      ]
+    }
+  ],
+  "text": "Jawa, jawa, jawa, jawa, jawa, jawa, jawa",
+  "applied_params": {
+    "language": "id",
+    "task": "transcribe",
+    "beam_size": 1,
+    "best_of": 1,
+    "temperature": 0.0,
+    "patience": 1.0,
+    "length_penalty": 1.0,
+    "repetition_penalty": 1.0,
+    "no_repeat_ngram_size": 0,
+    "condition_on_previous_text": false,
+    "initial_prompt": null,
+    "hotwords": null,
+    "prefix": null,
+    "no_speech_threshold": 0.6,
+    "log_prob_threshold": -1.0,
+    "compression_ratio_threshold": 2.4,
+    "suppress_blank": true,
+    "suppress_tokens": [
+      -1
+    ],
+    "max_initial_timestamp": 1.0,
+    "word_timestamps": true,
+    "without_timestamps": false,
+    "vad_filter": false
+  },
+  "peak_rss_mb": 489.1875,
+  "error": "",
+  "reference": "",
+  "wer": null,
+  "cer": null,
+  "exact": null,
+  "breakdown": null
+}

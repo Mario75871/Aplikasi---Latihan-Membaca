@@ -1,0 +1,32 @@
+{
+  "_note": "CONTOH bank soal untuk pengembangan/pengujian. target_text di sini BELUM diverifikasi manusia sebagai acuan resmi. Untuk produksi, ganti dengan bank soal resmi.",
+  "questions": [
+    {
+      "question_id": "indo_1-1_correct",
+      "target_text": "ibu pergi ke pasar",
+      "source_type": "question_bank",
+      "version": "example-1",
+      "language": "id",
+      "active": true,
+      "metadata": {"grade": "SD kelas 1-3", "verified_by_human": false}
+    },
+    {
+      "question_id": "indo_1-1_typo",
+      "target_text": "ibu pergi ke pasar",
+      "source_type": "question_bank",
+      "version": "example-1",
+      "language": "id",
+      "active": true,
+      "metadata": {"grade": "SD kelas 1-3", "verified_by_human": false}
+    },
+    {
+      "question_id": "indo_1",
+      "target_text": "ini adalah test model AI voice to text. aku ingin pergi ke panggar.",
+      "source_type": "question_bank",
+      "version": "example-1",
+      "language": "id",
+      "active": true,
+      "metadata": {"verified_by_human": false}
+    }
+  ]
+}
