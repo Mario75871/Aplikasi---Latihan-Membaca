@@ -1,0 +1,18 @@
+# Konteks build backend — jangan pernah bake kredensial ke image produksi.
+#
+# Tanpa berkas ini, `COPY . .` di Dockerfile ikut menyalin `.env.test` (kredensial
+# pengembang, mode 600 di server) ke dalam image. Pola di bawah mencerminkan
+# .gitignore; berkas `.example` sengaja tetap ikut karena hanya berisi dokumentasi.
+
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# === Secrets lokal (JANGAN masuk image) ===
+.env
+.env.*
+!.env.example
+!*.env.example
+!.env.test.example
+
+audio-uploads/
