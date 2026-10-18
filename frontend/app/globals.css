@@ -1,0 +1,71 @@
+@import "../tokens.css";
+
+/* BacaLaras — genre: editorial · tone: hangat/tenang/dipercaya ·
+   anchor hue ≈ 80 (oat paper) · aksen terakota (#BD582E) ·
+   sidik jari: ledger + hairline, 2 famili (Newsreader + Geist). */
+
+/* Font dimuat lewat next/font (self-host, non-blocking) di app/layout.tsx:
+   Newsreader (judul & bacaan) + Geist (UI/tabel). Tidak ada @import yang memblokir. */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Teacher Mode (default) — merujuk token kanonik di tokens.css */
+    --surface-bg: var(--color-paper);
+    --surface-card: var(--color-paper-card);
+    --text-primary: var(--color-ink-2);
+    --density: 1rem;
+  }
+
+  html {
+    @apply font-sans text-slate-800 antialiased;
+  }
+
+  body {
+    background-color: var(--surface-bg);
+  }
+
+  /* Ring fokus konsisten di seluruh aplikasi */
+  :focus-visible {
+    outline: none;
+    box-shadow: theme("boxShadow.focus");
+    border-radius: theme("borderRadius.md");
+  }
+}
+
+@layer components {
+  /* Student Mode: kontainer bacaan — serif/semi-serif, lega, lebar baris 60ch. */
+  .passage {
+    @apply font-serif text-slate-900;
+    line-height: 1.9;
+    letter-spacing: 0.005em;
+    max-width: 60ch;
+  }
+
+  /* Layar rekam (S-03): teks bacaan lebih ringkas agar banyak baris terlihat
+     sambil merekam. Tablet ~22–24px, desktop ~24–28px (clamp), line-height 1.65,
+     lebar baris ~65 karakter. */
+  .passage-record {
+    font-size: clamp(1.375rem, 1.05rem + 0.9vw, 1.75rem);
+    line-height: 1.65;
+    max-width: 65ch;
+  }
+
+  /* Angka tabular untuk metrik */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
